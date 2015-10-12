@@ -4,14 +4,12 @@ REPO_PATH=/home/user/workspace
 
 if [ "$1" = "my_workspace" ];then
 	REPO_PATH=/home/user/my_workspace
-fi
-
+fi	
 
 REPOS[0]=$REPO_PATH/Dreamer-Experiment-Handler
 REPOS[1]=$REPO_PATH/Dreamer-Management-Scripts
 REPOS[2]=$REPO_PATH/Dreamer-Measurements-Tools
-REPOS[3]=$REPO_PATH/Dreamer-Measurements-Tools
-#REPOS[3]=$REPO_PATH/Dreamer-Mininet-Extensions
+REPOS[3]=$REPO_PATH/Dreamer-Mininet-Extensions
 REPOS[4]=$REPO_PATH/dreamer-ryu
 REPOS[5]=$REPO_PATH/Dreamer-Topology3D
 REPOS[6]=$REPO_PATH/Dreamer-Topology-and-Service-Validator
@@ -24,7 +22,7 @@ printandexec () {
 		eval "$@"
 }
 
-for REPO_DIR in ${REPOS[@]};
+for REPO_DIR in ${REPOS[@]}; 
 do
 	printandexec cd $REPO_DIR
 
@@ -37,5 +35,5 @@ do
 		fi
 	else
 		git pull
-	fi
+	fi	
 done

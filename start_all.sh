@@ -1,45 +1,43 @@
 #!/bin/bash
 
-
 start() {
 
-	killall python
-	killall node
+	kill -9 $(ps ax | grep -m 1 "python manage.py runserver 0.0.0.0:8090" | awk '{print $1}') &> /dev/null
+	kill $(pidof node app.js) &> /dev/null
+	kill $(ps ax | grep -m 1 'firefox -P DT3D -new-instance file:///home/user/workspace/Dreamer-Topology3D/index.html' | awk '{print $1}') &> /dev/null
 
-	xfce4-terminal -T django -e 'env PROMPT_COMMAND="
+	TERM_TO_KILL=$(ps ax | grep -m 2 "xfce4-terminal --disable-server" | awk '{print $1}')
+
+	for TERM in ${TERM_TO_KILL[@]}; 
+	do
+		echo $TERM
+		kill $TERM	&> /dev/null	
+	done
+
+	xfce4-terminal --disable-server -T django -e 'env PROMPT_COMMAND=" 
 	unset PROMPT_COMMAND
-	history -s python manage.py runserver 0.0.0.0:8090
+	history -s python manage.py runserver 0.0.0.0:8090 
 	python manage.py runserver 0.0.0.0:8090" bash' --working-directory=/home/user/workspace/Dreamer-Topology-and-Service-Validator &
 
 	sleep 1
 
-	xfce4-terminal -T node.js -e 'env PROMPT_COMMAND="
+	xfce4-terminal --disable-server -T node.js -e 'env PROMPT_COMMAND=" 
 	unset PROMPT_COMMAND
-	history -s node\ app.js
+	history -s node\ app.js 
 	node app.js" bash' --working-directory=/home/user/workspace/Dreamer-Experiment-Handler &
 
-	sleep 3
+	sleep 1
 
-	firefox file:///home/user/workspace/Dreamer-Topology3D/index.html
-
-	#chromium-browser file:///home/user/workspace/Dreamer-Topology3D/index.html
+	firefox -P "DT3D" -new-instance file:///home/user/workspace/Dreamer-Topology3D/index.html
 
 }
 
 update() {
 
-	xfce4-terminal -T update -e 'env PROMPT_COMMAND="
+	xfce4-terminal -T update -e 'env PROMPT_COMMAND=" 
 	unset PROMPT_COMMAND
-	history -s ./update_all.sh
-	./update_all.sh" bash' --working-directory=/home/user
-}
-
-update_my() {
-
-	xfce4-terminal -T update -e 'env PROMPT_COMMAND="
-	unset PROMPT_COMMAND
-	history -s ./update_all.sh\ my_workspace
-	./update_all.sh my_workspace" bash' --working-directory=/home/user
+	history -s ./update_all.sh 
+	./update_all.sh" bash' --working-directory=/home/user	
 
 }
 
