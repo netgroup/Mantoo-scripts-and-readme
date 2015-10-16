@@ -8,17 +8,18 @@ OSHI Home Page : http://netgroup.uniroma2.it/OSHI/
 
 Please refer to the OSHI Home Page for further information.
 
-Readme version: 2015-09-24
+Readme version: 2015-10-16
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
 
 #########################################################################################################
 #TABLE OF CONTENT OF THIS README
 #########################################################################################################
 
-0. Introduction
-1. Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet
-2. Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
-3. Emulation example #2 - Deployment of Virtual Switches
+0.  Introduction
+0.1 Release notes
+1.  Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet
+2.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
+3.  Emulation example #2 - Deployment of Virtual Switches
 
 ##########################################################################################
 ### 0. Introduction
@@ -96,10 +97,26 @@ local copy of floodlight 0.90
 *** sdn-te-sr-tools  
 tools for SDN based Traffic Engineering 
 
+##########################################################################################
+### 0.1 Release notes
+##########################################################################################
+
+OSHI-VM_5 released 2015-10-10
+- A launcher icon named "go" on the desktop is used to launch the Topology3D GUI 
+  on the Firefox browser and the django and node.js backends with a single click
+- A launcher icon named "update" is used to sync up all the folder with the
+  corresponding repositories on github
+- Several improvements in the Topology3D GUI
+  
+OSHI_VM4 released 2015-07-18
 
 ##########################################################################################
 ### 1. Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet 
 ##########################################################################################
+
+THE OPERATIONS DESCRIBED HEREAFTER CAN ALSO EXECUTED BY CLICKING
+ON THE "go" LAUNCHER ICON ON THE DESKTOP. IF AN EXECUTION IS RUNNING
+CLICKING AGAIN ON THE "go" LAUNCHER ICON CLEARS EVERYTHING.
 
 In order to run locally the topology3D server and automatically deploy topologies on mininet emulator
 
