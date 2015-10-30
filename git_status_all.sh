@@ -19,6 +19,7 @@ REPOS[9]=$REPO_PATH/floodlight-0.90
 REPOS[10]=$REPO_PATH/Mantoo-scripts-and-readme
 
 
+
 printandexec () {
 		echo "$@"
 		eval "$@"
@@ -27,15 +28,7 @@ printandexec () {
 for REPO_DIR in ${REPOS[@]}; 
 do
 	printandexec cd $REPO_DIR
+	printandexec git status
 
-	if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
-		echo "Changes not staged for commit, delete all?"
-		read -r -p "Are you sure? [y/N] " response
-		if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    		git stash
-    		git pull
-		fi
-	else
-		git pull
-	fi	
+
 done
