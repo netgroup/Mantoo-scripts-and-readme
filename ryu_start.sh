@@ -2,7 +2,7 @@
 
 echo -e "\n"
 echo "#################################################"
-echo "##     DREAMER IP/SDN Hyibrid RYU Launcher     ##"
+echo "##     OSHI Hybrid IP/SDN Hybrid ryu_start     ##"
 echo "##                                             ##"
 echo "##  The process can last many minutes. Please  ##"
 echo "##  wait and do not interrupt the process.     ##"
