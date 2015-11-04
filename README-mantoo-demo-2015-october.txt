@@ -26,7 +26,7 @@ scaletta demo
 	cd /home/user/workspace/dreamer-ryu/ryu/app
 	ryu-manager --verbose --observe-links ofctl_rest.py rest_topology
 
-	oppure usare il ryu_launcher.sh (modificare prima il path di default
+	oppure usare il ryu_start.sh (modificare prima il path di default
 	da my_workspace a workspace, e mettere --verbose se necessario, 
 	lo script sta alla fine del README se serve)
 
@@ -112,7 +112,7 @@ possibili problemi
 	
 	usare comandi che non vanno interrotti es ping -c 10 10.0.5.1
 
-- il ryu launcher non funziona
+- il ryu_start.sh non funziona
 	
 	cambiare il path da my_workspace a workspace
 
