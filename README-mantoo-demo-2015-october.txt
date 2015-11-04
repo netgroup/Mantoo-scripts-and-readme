@@ -130,14 +130,15 @@ creare i launcher sul desktop click col destro create launcher
 	nel launcher "go" mettere come comando 
 
 		/home/user/start_all.sh start
+	ora in	/home/user/worspace/Mantoo-scripts-and-readme
 
 	selezionare l'icona scegliendola dal percorso 
 	tutto il resto può essere lasciato in bianco
 
-
 	nel launcher "update" mettere come comando 
 		
 		/home/user/start_all.sh start	
+	ora in	/home/user/worspace/Mantoo-scripts-and-readme
 
 	selezionare l'icona scegliendola dal percorso
 	tutto il resto può essere lasciato in bianco
@@ -187,7 +188,7 @@ echo "#################################################"
 
 WORKSPACE="workspace"
 cd /home/user/$WORKSPACE/dreamer-ryu/ryu/app
-ryu-manager --observe-links ofctl_rest.py rest_topology
+ryu-manager --verbose --observe-links ofctl_rest.py rest_topology
 
 
 
