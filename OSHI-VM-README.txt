@@ -11,6 +11,9 @@ Please refer to the OSHI Home Page for further information.
 Readme version: 2015-10-16
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
 
+password for user: 1234 
+password for root: root
+
 #########################################################################################################
 #TABLE OF CONTENT OF THIS README
 #########################################################################################################
@@ -26,7 +29,6 @@ The updated version of this readme is available at http://netgroup.uniroma2.it/t
 ##########################################################################################
 
 The OSHI-VM contains all the projects related to OSHI, in the folder /home/user/workspace/
-
 - Dreamer-Mininet-Extensions
 - Dreamer-VLL-Pusher
 
@@ -100,6 +102,13 @@ tools for SDN based Traffic Engineering
 ##########################################################################################
 ### 0.1 Release notes
 ##########################################################################################
+
+OSHI-VM_6 to be released 
+- Added the folder /home/user/workspace/Mantoo-scripts-and-readme
+- The update_all.sh script also updates /home/user/workspace/Mantoo-scripts-and-readme
+- The laucher icons in the desktop now points to the scripts in Mantoo-scripts-and-readme
+- /root/ryu_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
+- New version of wireshark (1.12.8) is included
 
 OSHI-VM_5 released 2015-10-10
 - A launcher icon named "go" on the desktop is used to launch the Topology3D GUI 
