@@ -32,3 +32,5 @@ do
 
 
 done
+
+read -r -p "Press enter to exit" response
