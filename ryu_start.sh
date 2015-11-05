@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo -e "\n"
 echo "#################################################"
 echo "##     OSHI Hybrid IP/SDN Hybrid ryu_start     ##"
@@ -10,4 +9,4 @@ echo "#################################################"
 
 WORKSPACE="workspace"
 cd /home/user/$WORKSPACE/dreamer-ryu/ryu/app
-ryu-manager --observe-links ofctl_rest.py rest_topology --verbose
+ryu-manager --verbose --observe-links ofctl_rest.py rest_topology
