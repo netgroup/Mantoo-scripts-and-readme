@@ -1,6 +1,6 @@
 #!/bin/bash
 
-start() {
+stop() {
 
 	kill -9 $(ps ax | grep -m 1 "python manage.py runserver 0.0.0.0:8090" | awk '{print $1}') &> /dev/null
 	kill $(pidof node app.js) &> /dev/null
@@ -13,6 +13,25 @@ start() {
 		echo $TERM
 		kill $TERM	&> /dev/null	
 	done
+
+	TERM_TO_KILL2=$(ps ax | grep "quagga" | awk '{print $1}')
+
+	for TERM in ${TERM_TO_KILL2[@]}; 
+	do
+		echo $TERM
+		kill $TERM	&> /dev/null	
+	done
+
+	if [ "$(ps ax | grep -c 'mininet:')" -gt 1 ]; then
+		sudo mn -c &> /dev/null
+	fi
+
+}
+
+
+start() {
+
+	stop
 
 	xfce4-terminal --disable-server -T django -e 'env PROMPT_COMMAND=" 
 	unset PROMPT_COMMAND
