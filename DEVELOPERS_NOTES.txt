@@ -7,3 +7,46 @@ First of all, delete all the unneded files.
 Then follow the guide at 
 http://dantwining.co.uk/2011/07/18/how-to-shrink-a-dynamically-expanding-guest-virtualbox-image/
 
+*****************************************************************
+Needed packages and dependences
+*****************************************************************
+
+zerofree : sudo apt-get install zerofree
+(needed when resizing the VM disk)
+
+wireshark
+
+traceroute
+
+***Mininet Extensions Dependencies
+
+1) netaddr (pip)
+
+2) ipaddress (pip)
+
+3) OSHI dependecies, see setup.sh of the Dreamer-Setup-Scripts project
+
+3.1) Open vSwitch 2.390 for MPLS-VLL and MPLS-PW Open vSwitch (git)
+
+3.2) RYU for MPLS-VS, MPLS-PW and MPLS-VLL RYU (git)
+
+3.3) networkx for MPLS-VS (pip)
+
+4) Open vSwitchd service (init.d):
+Install the Open vSwitchd service:
+
+    sudo update-rc.d -f openvswitch-controller remove
+    sudo update-rc.d -f openvswitch-switch remove
+    ./install.sh
+
+5) Mininet, in particular the commit: aae0affae46a63ef5e54d86351c96417c3888112 (git)
+Install the commit
+
+    git clone git://github.com/mininet/mininet
+    cd mininet/
+    git reset --hard aae0affae46a63ef5e54d86351c96417c3888112
+    cd ..
+    mininet/util/install.sh -ent
+
+6) Dreamer-Topology-Parser (git)
+
