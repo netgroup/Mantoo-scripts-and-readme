@@ -8,7 +8,7 @@ OSHI Home Page : http://netgroup.uniroma2.it/OSHI/
 
 Please refer to the OSHI Home Page for further information.
 
-Readme version: 2015-10-16
+Readme version: 2015-11-05
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
 
 password for user: 1234 
@@ -29,6 +29,7 @@ password for root: root
 ##########################################################################################
 
 The OSHI-VM contains all the projects related to OSHI, in the folder /home/user/workspace/
+
 - Dreamer-Mininet-Extensions
 - Dreamer-VLL-Pusher
 
@@ -103,9 +104,10 @@ tools for SDN based Traffic Engineering
 ### 0.1 Release notes
 ##########################################################################################
 
-OSHI-VM_6 to be released 
+OSHI-VM_6 released 2015-11-06
 - Added the folder /home/user/workspace/Mantoo-scripts-and-readme
 - The update_all.sh script also updates /home/user/workspace/Mantoo-scripts-and-readme
+- A final question to exit the update_all.sh script has been added
 - The laucher icons in the desktop now points to the scripts in Mantoo-scripts-and-readme
 - /root/ryu_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
 - New version of wireshark (1.12.8) is included
