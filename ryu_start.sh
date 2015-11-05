@@ -1,5 +1,5 @@
 #!/bin/bash
-echo -e "\n"
+
 echo "#################################################"
 echo "##     OSHI Hybrid IP/SDN Hybrid ryu_start     ##"
 echo "##                                             ##"
