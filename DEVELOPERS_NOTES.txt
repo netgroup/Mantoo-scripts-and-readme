@@ -1,0 +1,9 @@
+*****************************************************************
+How to shrink a disk of the VM
+*****************************************************************
+
+First of all, delete all the unneded files.
+
+Then follow the guide at 
+http://dantwining.co.uk/2011/07/18/how-to-shrink-a-dynamically-expanding-guest-virtualbox-image/
+
