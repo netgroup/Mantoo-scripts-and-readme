@@ -39,3 +39,4 @@ do
 		git pull
 	fi	
 done
+read -r -p "Press enter to exit" response
