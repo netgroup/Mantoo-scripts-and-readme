@@ -4,9 +4,12 @@
 
 This Virtual Machine provides a ready-to-go environment to run experiments related to the OSHI framework
 
-OSHI Home Page : http://netgroup.uniroma2.it/OSHI/ 
+You may refer to the OSHI Home Page for further information:
+http://netgroup.uniroma2.it/OSHI/ 
 
-Please refer to the OSHI Home Page for further information.
+IMPORTANT: you may UPDATE all the projects in the OSHI Virtual Machine
+to their latest version by running the update script
+*** simply click the "update" desktop icon ***
 
 Readme version: 2015-11-05
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
