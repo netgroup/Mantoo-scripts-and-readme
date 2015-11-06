@@ -20,9 +20,10 @@ password for root: root
 
 0.  Introduction
 0.1 Release notes
-1.  Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet
-2.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
-3.  Emulation example #2 - Deployment of Virtual Switches
+1.  Experiments with the Topology3D (web GUI) and local deployment of topologies over mininet
+2.  Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet
+4.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
+4.  Emulation example #2 - Deployment of Virtual Switches
 
 ##########################################################################################
 ### 0. Introduction
@@ -104,13 +105,16 @@ tools for SDN based Traffic Engineering
 ### 0.1 Release notes
 ##########################################################################################
 
-OSHI-VM_6 released 2015-11-06
+OSHI-VM_6b released 2015-11-06
 - Added the folder /home/user/workspace/Mantoo-scripts-and-readme
 - The update_all.sh script also updates /home/user/workspace/Mantoo-scripts-and-readme
-- A final question to exit the update_all.sh script has been added
-- The laucher icons in the desktop now points to the scripts in Mantoo-scripts-and-readme
-- /root/ryu_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
 - New version of wireshark (1.12.8) is included
+- "Press enter" to exit the update_all.sh script has been added
+- The laucher icons in the desktop now points to the scripts in Mantoo-scripts-and-readme
+- A launcher icon "stop" has been added 
+- A launcher icon "check_status" has been added (git status on all projects)
+- /root/ryu_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
+- /home/user/service_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
 
 OSHI-VM_5 released 2015-10-10
 - A launcher icon named "go" on the desktop is used to launch the Topology3D GUI 
@@ -122,12 +126,108 @@ OSHI-VM_5 released 2015-10-10
 OSHI_VM4 released 2015-07-18
 
 ##########################################################################################
-### 1. Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet 
+### 1.  Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
 ##########################################################################################
 
-THE OPERATIONS DESCRIBED HEREAFTER CAN ALSO EXECUTED BY CLICKING
-ON THE "go" LAUNCHER ICON ON THE DESKTOP. IF AN EXECUTION IS RUNNING
-CLICKING AGAIN ON THE "go" LAUNCHER ICON CLEARS EVERYTHING.
+Click on the "go" launcher icon on the desktop.
+
+It starts two terminal shells (running django and node.js) and the Firefox browser,
+opened at the Topology3D page.
+
+Using the View menu in the top bar, switch the view to VLL (Virtual Leased Line). 
+A VLL between two CER (Customer Edge Router) is shown. This is the service to be
+realized.
+
+Using the Deployment menu  in the top bar, click on the Deploy command.
+Now click with the mouse on the Deployment tab at the bottom of the page,
+to put the focus on it. Type:
+> deploy 
+and press enter. The deployment of the topology on Mininet will start, at the end in the
+deployment shell the list of nodes with their management IP address will be shown.
+
+You can press Ctrl and click on a node in the topology and a terminal shell
+on that node will appear at the bottom of the web page as new tab.
+
+You can execute arbitrary commands on the shell of a terminal, for example:
+> ip route
+> ip addr
+> ifconfig
+> ping 10.0.0.1
+> traceroute 10.0.4.1
+
+Using ip addr and ifconfig, in CRs (Core Routers) and PEs (Provider Edge)
+you can identify the "physical" interfaces of the nodes 
+ethx (e.g. for a node peo6: peo6-eth0, peo6-eth1, ...) and the "virtual" interfaces
+that are visible to the IP routing of the nodes (vi0, vi1, vi2)
+
+You can identify the numbering of the IP networks between PE, CR and CER 10.0.x.y,
+of the management interfaces toward the host e.g. 10.255.25x.y,
+of the "loopback" addresses of the IP routers: 172.16.0.x
+
+The CER nodes have only the physical interface as they are not Hybrid IP/SDN nodes,
+but only IP routers.
+In the CER nodes you can identify an interface with the same network
+between the two remote CERs, by pinging on this interface there is no answer
+(because the VLL is not active at the startup).
+On cer7 try to ping cer1 on the tunnel, type:
+> ping 10.0.11.1 (not working)
+
+Try a ping or traceroute toward the "regular" address of cer1, type:
+> ping 10.0.5.1 (it works)
+> traceroute 10.0.5.1 (it works)
+
+You can also ssh to the nodes from a terminal in the host machine
+(see their management IP address in the deployment shell tab)
+
+user@OSHI-VM:~$ ssh -X root@10.255.253.1
+
+you can run the same arbitrary commands as listed above and you can launch wireshark:
+> wireshark &
+
+In wireshark for example you can capture the openflow packets and the OSPF packets.
+At the beginning the controller is not running and you will see the connection attempts
+from the switches to the controller.
+
+Now let us start the controller. Press Ctrl and left click on the controller icon
+to open the shell tab at the bottom of the Topology3D page.
+In the controller shell, type:
+> ./ryu_start.sh
+
+The controller starts. If you capture with wireshark on the links among the routers
+you will see openflow packet-out and packet-in related to the continuous topology
+discovery procedure run by the controller. By capturing on the ethx interfaces 
+the LLDP packets can be observed.
+
+Finally let us create the VLL service. During the deployment phase a configuration
+file that describes the required VLL services (in this case a single VLL) has been produced.
+This configuration file is taken as input by a python script called vll_pusher
+that uses the Northbound interface of the ryu controller. It asks ryu to create 
+a set of tunnels, one per each VLL to be created. Ryu selects the path considering its 
+view of the topology and executing the dijkstra shortest path algorithm.
+Ryu creates MPLS tunnels in this example.
+
+In a terminal shell of the host, type:
+user@OSHI-VM:~$ ./service_start.sh 10.255.248.1
+
+You can now start the ping among the CERs over the tunnel. From cer7 type:
+> ping 10.0.11.1 (it now works)
+
+Compare the traceroute on the tunnel and toward the regular IP address of cer1
+> traceroute 10.0.11.1
+> traceroute 10.0.5.1
+
+Run wireshark on an OSHI router in the path, for example peo6 
+user@OSHI-VM:~$ ssh -X root@10.255.252.1
+> wireshark &
+If you execute again the ping on the tunnel, you can capture the MPLS packets 
+in the interface from peo6 toward one of the core routers.
+Note: you need to capture on one of the physical interfaces (peo6-ethx), because
+the MPLS packets are not visible on the vix interfaces.
+
+
+##########################################################################################
+### 2. Manual execution of the components 
+##########################################################################################
 
 In order to run locally the topology3D server and automatically deploy topologies on mininet emulator
 
@@ -143,7 +243,7 @@ Open the web page of the Topology3D using Firefox
 /home/user/workspace/Dreamer-Topology3D/index.html
 
 ##########################################################################################
-### 2. Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
+### 3. Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
 ##########################################################################################
 
 Three projects are needed to run this Mininet experiment:
@@ -197,7 +297,7 @@ in the folder "Dreamer-VLL-Pusher/ryu". This file is necessary for the installat
 4) Wait for the conclusion.
 
 ##########################################################################################
-### 3. Emulation example #2 - Deployment of Virtual Switches
+### 4. Emulation example #2 - Deployment of Virtual Switches
 ##########################################################################################
 
 - Emulation start:
