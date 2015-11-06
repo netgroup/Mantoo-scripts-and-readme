@@ -2,6 +2,7 @@
 
 stop() {
 
+	rm /home/user/workspace/Dreamer-VLL-Pusher/ryu/*.json > /dev/null
 	kill -9 $(ps ax | grep -m 1 "python manage.py runserver 0.0.0.0:8090" | awk '{print $1}') &> /dev/null
 	kill $(pidof node app.js) &> /dev/null
 	kill $(ps ax | grep -m 1 'firefox -P DT3D -new-instance file:///home/user/workspace/Dreamer-Topology3D/index.html' | awk '{print $1}') &> /dev/null
