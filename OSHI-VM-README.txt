@@ -23,8 +23,8 @@ password for root: root
 
 0.  Introduction
 0.1 Release notes
-1.  Experiments with the Topology3D (web GUI) and local deployment of topologies over mininet
-2.  Local execution of the Topology3D (Web GUI) and local deployment of topologies over mininet
+1.  Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
+2.  Manual execution of the components 
 4.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
 4.  Emulation example #2 - Deployment of Virtual Switches
 
@@ -129,7 +129,7 @@ OSHI-VM_5 released 2015-10-10
 OSHI_VM4 released 2015-07-18
 
 ##########################################################################################
-### 1.  Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
+### 1. Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
 ##########################################################################################
 
 Click on the "go" launcher icon on the desktop.
@@ -187,9 +187,19 @@ user@OSHI-VM:~$ ssh -X root@10.255.253.1
 you can run the same arbitrary commands as listed above and you can launch wireshark:
 > wireshark &
 
-In wireshark for example you can capture the openflow packets and the OSPF packets.
+In wireshark for example you can capture the OpenFlow packets and the OSPF packets.
 At the beginning the controller is not running and you will see the connection attempts
-from the switches to the controller.
+from the switches to the controller. The wireshark filter for OpenFlow is "openflow_v4"
+which corresponds to OpenFlow 1.3
+
+On a OSHI node you can operate on the ovs switch. Assume that you are logged in a
+PE node called peo2, this command shows all the interfaces bridged in the ovs switch:
+
+> ovs-vsctl --db=unix:/tmp/peo2/ovs/db.sock show
+
+This command dumps the OpenFlow table of the switch
+
+> ovs-ofctl dump-flows peo2 -O OpenFlow13
 
 Now let us start the controller. Press Ctrl and left click on the controller icon
 to open the shell tab at the bottom of the Topology3D page.
