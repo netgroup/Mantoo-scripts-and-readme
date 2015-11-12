@@ -43,15 +43,40 @@ where you replace my.vdi with the name of the vdi you’d like to shrink
 *****************************************************************
 Needed packages and dependences
 *****************************************************************
+--------------
+packages of general usage
+-------------
 
 zerofree : sudo apt-get install zerofree
 (needed when resizing the VM disk)
 
-wireshark
+wireshark 
 
 traceroute
 
-***Mininet Extensions Dependencies
+--------------
+analysis by project 
+-------------
+- Dreamer-Mininet-Extensions : already analysed (Pier)
+- Dreamer-VLL-Pusher         : Pier
+
+- Dreamer-Topology3D         : Francesco 
+- Dreamer-Topology-and-Service-Validator :  Pier
+- Dreamer-Topology-Parser    :Pier
+
+- Dreamer-Testbed-Deployer   : Pier
+- Dreamer-Management-Scripts : Pier
+
+- Dreamer-Experiment-Handler : Pier
+- Dreamer-Measurements-Tools : Pier
+
+- Dreamer-ryu                
+- floodlight-0.90            
+
+- sdn-te-sr-tools   
+
+
+***Dreamer-Mininet-Extensions Dependencies
 
 1) netaddr (pip)
 
