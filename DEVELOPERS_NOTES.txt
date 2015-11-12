@@ -108,3 +108,9 @@ Install the commit
 
 6) Dreamer-Topology-Parser (git)
 
+
+*** Dreamer-Topology3D dependency (copied from README.md)
+
+    WebServer (apache2, nginx, etc..) (optional)
+    Dreamer-Topology-and-Service-Validator (here)
+    Dreamer-Experiment-Handler (here) (optional)
