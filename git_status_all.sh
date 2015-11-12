@@ -17,7 +17,8 @@ REPOS[7]=$REPO_PATH/Dreamer-Topology-Parser-and-Validator
 REPOS[8]=$REPO_PATH/Dreamer-VLL-Pusher
 REPOS[9]=$REPO_PATH/floodlight-0.90
 REPOS[10]=$REPO_PATH/Mantoo-scripts-and-readme
-
+EPOS[11]=$REPO_PATH/OSHI-Monitoring
+REPOS[12]=$REPO_PATH/OSHI-REST-server
 
 
 printandexec () {
@@ -27,9 +28,11 @@ printandexec () {
 
 for REPO_DIR in ${REPOS[@]}; 
 do
-	printandexec cd $REPO_DIR
-	printandexec git status
-
+	if [ -d $REPO_DIR ]; then
+  		# It will enter here if $REPO_dir exists.
+		printandexec cd $REPO_DIR
+		printandexec git status
+	fi
 
 done
 

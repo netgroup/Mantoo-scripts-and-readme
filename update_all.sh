@@ -17,6 +17,8 @@ REPOS[7]=$REPO_PATH/Dreamer-Topology-Parser-and-Validator
 REPOS[8]=$REPO_PATH/Dreamer-VLL-Pusher
 REPOS[9]=$REPO_PATH/floodlight-0.90
 REPOS[10]=$REPO_PATH/Mantoo-scripts-and-readme
+REPOS[11]=$REPO_PATH/OSHI-Monitoring
+REPOS[12]=$REPO_PATH/OSHI-REST-server
 
 
 printandexec () {
@@ -26,17 +28,20 @@ printandexec () {
 
 for REPO_DIR in ${REPOS[@]}; 
 do
-	printandexec cd $REPO_DIR
+	if [ -d $REPO_DIR ]; then
+  		# It will enter here if $REPO_dir exists.
+		printandexec cd $REPO_DIR
 
-	if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
-		echo "Changes not staged for commit, delete all?"
-		read -r -p "Are you sure? [y/N] " response
-		if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    		git stash
-    		git pull
-		fi
-	else
-		git pull
-	fi	
+		if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+			echo "Changes not staged for commit, delete all?"
+			read -r -p "Are you sure? [y/N] " response
+			if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+	    		git stash
+	    		git pull
+			fi
+		else
+			git pull
+		fi	
+	fi
 done
 read -r -p "Press enter to exit" response
