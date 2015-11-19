@@ -279,7 +279,7 @@ For example, you can monitor the evolution of the IP routing in a OSHI node, try
 
 4) Now open two xterm on the controller of the topology, in the first terminal start the RYU controller:
    - xterm ctr8 ctr8 
-   - root@OSHI-VM:~/workspace/ryu/ryu/app# ryu-manager rest_topology.py ofctl_rest.py --observe-links
+   - root@OSHI-VM:~/workspace/dreamer-ryu/ryu/app# ryu-manager rest_topology.py ofctl_rest.py --observe-links
 
 5) Try the ping among two CERs
 (the first Ethernet interface is for the IP service, while the others are used for the VLL and the PW):
@@ -323,7 +323,7 @@ At this step, the topology is started and properly configured.
 
 3) Now open two xterm on the controller of the topology, in the first terminal start the RYU controller:
    - xterm ctr1 ctr1 
-   - root@OSHI-VM:~/workspace/ryu/ryu/app# ryu-manager rest_topology.py ofctl_rest.py --observe-links
+   - root@OSHI-VM:~/workspace/dreamer-ryu/ryu/app# ryu-manager rest_topology.py ofctl_rest.py --observe-links
 
 4) Try the ping among two CER (the first Ethernet interface is for the IP service, while the other are used for the VSs):
    - xterm cer1
