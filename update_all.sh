@@ -45,6 +45,9 @@ REPOS[11]=$REPO_PATH/OSHI-monitoring
 REPOS[12]=$REPO_PATH/OSHI-REST-server
 #https://github.com/netgroup/OSHI-REST-server.git
 
+REPOS[13]=$REPO_PATH/sdn-te-sr-tools
+#https://github.com/netgroup/SDN-TE-SR-tools.git
+
 
 printandexec () {
 		echo "$@"

@@ -19,6 +19,8 @@ REPOS[9]=$REPO_PATH/floodlight-0.90
 REPOS[10]=$REPO_PATH/Mantoo-scripts-and-readme
 EPOS[11]=$REPO_PATH/OSHI-monitoring
 REPOS[12]=$REPO_PATH/OSHI-REST-server
+REPOS[13]=$REPO_PATH/sdn-te-sr-tools
+
 
 
 printandexec () {
