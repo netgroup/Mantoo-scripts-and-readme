@@ -48,6 +48,8 @@ REPOS[12]=$REPO_PATH/OSHI-REST-server
 REPOS[13]=$REPO_PATH/sdn-te-sr-tools
 #https://github.com/netgroup/SDN-TE-SR-tools.git
 
+REPOS[14]=$REPO_PATH/Dreamer-Testbed-Deployer
+#https://github.com/netgroup/Dreamer-Testbed-Deployer
 
 printandexec () {
 		echo "$@"

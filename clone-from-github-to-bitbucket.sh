@@ -49,6 +49,8 @@ REPOS[12]=OSHI-REST-server
 REPOS[13]=sdn-te-sr-tools
 #https://github.com/netgroup/SDN-TE-SR-tools.git
 
+REPOS[14]=Dreamer-Testbed-Deployer
+#https://github.com/netgroup/Dreamer-Testbed-Deployer
 
 printandexec () {
 		echo "$@"

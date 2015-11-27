@@ -17,9 +17,10 @@ REPOS[7]=$REPO_PATH/Dreamer-Topology-Parser-and-Validator
 REPOS[8]=$REPO_PATH/Dreamer-VLL-Pusher
 REPOS[9]=$REPO_PATH/floodlight-0.90
 REPOS[10]=$REPO_PATH/Mantoo-scripts-and-readme
-EPOS[11]=$REPO_PATH/OSHI-monitoring
+REPOS[11]=$REPO_PATH/OSHI-monitoring
 REPOS[12]=$REPO_PATH/OSHI-REST-server
 REPOS[13]=$REPO_PATH/sdn-te-sr-tools
+REPOS[14]=$REPO_PATH/Dreamer-Testbed-Deployer
 
 
 
