@@ -104,6 +104,15 @@ local copy of floodlight 0.90
 *** sdn-te-sr-tools  
 tools for SDN based Traffic Engineering 
 
+*** OSHI-Monitoring
+(not included in OSHI-VM_6b, the repo needs to be checkout from github)
+tools for monitoring traffic on links and saving the information in .rrd databases
+
+*** OSHI-REST-server
+(not included in OSHI-VM_6b, the repo needs to be checkout from github)
+it can provide various services, currently it creates the .png files with traffic statistics
+
+
 ##########################################################################################
 ### 0.1 Release notes
 ##########################################################################################
