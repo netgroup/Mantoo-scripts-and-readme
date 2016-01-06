@@ -27,20 +27,16 @@ shift
 done
 if [[ ${MODE} = 'monitoring' ]]
 	then
-		echo "Setting up environment..."
-	  	apt-get install rrdtool librrds-perl librrd-dev sshpass
-	  	pip install rrdtool
-
-		echo "#################################################"
-		echo "##     OSHI Hybrid IP/SDN Hybrid ryu_start     ##"
-		echo "##        with a monitoring processing   	     ##"
-		echo "##  The process can last many minutes. Please  ##"
-		echo "##  wait and do not interrupt the process.     ##"
-		echo "#################################################"
+		echo "##################################################"
+		echo "##     OSHI Hybrid IP/SDN Hybrid ryu_start      ##"
+		echo "##         with a monitoring processing   	  ##"
+		echo "##       The process can last many minutes.     ##"
+		echo "## Please wait and do not interrupt the process ##"
+		echo "##################################################"
 
 		WORKSPACE="workspace"
 		cd /home/user/$WORKSPACE/dreamer-ryu/ryu/app
-		ryu-manager --verbose --observe-links ofctl_rest.py rest_topology traffic_monitor.py
+		ryu-manager --verbose --observe-links ofctl_rest.py rest_topology /home/user/workspace/OSHI-monitoring/traffic_monitor.py 
 else 
           echo "Unrecognized option. Available options are: setup, runmininet and runryu. This script will now terminate."
           exit 1
