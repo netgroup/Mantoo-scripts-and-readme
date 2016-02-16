@@ -48,6 +48,12 @@ start() {
 
 	sleep 1
 
+	xfce4-terminal --disable-server -T OSHIRESTSERVER -e '
+	env PROMPT_COMMAND="
+	./OSHI-REST-server.sh --mode run" bash ' --working-directory=/home/user/workspace/OSHI-REST-server &
+
+	sleep 1
+
 	firefox -P "DT3D" -new-instance file:///home/user/workspace/Dreamer-Topology3D/index.html
 
 }
