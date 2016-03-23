@@ -25,8 +25,9 @@ password for root: root
 0.1 Release notes
 1.  Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
 2.  Manual execution of the components 
-4.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
+3.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
 4.  Emulation example #2 - Deployment of Virtual Switches
+5.  Segment routing examples
 
 ##########################################################################################
 ### 0. Introduction
@@ -274,20 +275,37 @@ Three projects are needed to run this Mininet experiment:
 2) dreamer-ryu 
 3) Dreamer-VLL-Pusher
 
-- Starting the emulation:
+This example can be executed using the command line (CLI) or the Topology3D GUI (GUI)
 
-1) Run the mininet_deployer script:
+1-CLI) Starting the emulation using the command line - Run the mininet_deployer script:
    - user@OSHI-VM:~/workspace/Dreamer-Mininet-Extensions$ sudo ./mininet_deployer.py --topology topo/topo_vll_pw.json
 
-2) Wait for the end of the execution (you can see the Mininet CLI "mininet>").
+2-CLI) Wait for the end of the execution (you can see the Mininet CLI "mininet>").
 Now the topology is started and properly configured.
 
-3) With the command "xterm node", where node is the name of a node in the topology,
+1-GUI) Load the example topology: from the Topology menu in the top bar, select Import topology from file
+Choose the file /home/user/workspace/Dreamer-Mininet-Extensions/topo/topo_vll_pw.json
+
+Depoly the topology: In the left frame, from the Deployment menu, select Deploy.
+In the deployment window on the bottom, type deploy and then press enter.
+
+2-GUI) Wait for the end of the deployment (you can see the list of node started with their management IP addresses, then "Starting CLI" and the prompt).
+Now the topology is started and properly configured.
+
+3-CLI) With the command "xterm node", where node is the name of a node in the topology,
 you can open a terminal in this specific node and run commands.
 For example, you can monitor the evolution of the IP routing in a OSHI node, try a ping, etc...;
 
-4) Now open two xterm on the controller of the topology, in the first terminal start the RYU controller:
+3-GUI) With Control-left-click on a node, you can open a shell on a given terminal in a new tab at the bottom of the web page
+
+4) Now open two shell terminals on the controller of the topology, either using the mininet CLI
    - xterm ctr8 ctr8 
+   or running ssh to the controller from two different shells on the host, you need to check the controller IP addressin the output of the script that has launched mininet) for example, assuming that the ip address is 10.255.248.1 
+   - ssh -X root@10.255.248.1
+   (the password is root)
+
+in the first terminal start the RYU controller:
+   - cd /home/user/workspace/dreamer-ryu/ryu/app
    - root@OSHI-VM:~/workspace/dreamer-ryu/ryu/app# ryu-manager rest_topology.py ofctl_rest.py --observe-links
 
 5) Try the ping among two CERs
@@ -332,6 +350,7 @@ At this step, the topology is started and properly configured.
 
 3) Now open two xterm on the controller of the topology, in the first terminal start the RYU controller:
    - xterm ctr1 ctr1 
+   - cd /home/user/workspace/dreamer-ryu/ryu/app
    - root@OSHI-VM:~/workspace/dreamer-ryu/ryu/app# ryu-manager rest_topology.py ofctl_rest.py --observe-links
 
 4) Try the ping among two CER (the first Ethernet interface is for the IP service, while the other are used for the VSs):
@@ -360,6 +379,13 @@ in the folder "Dreamer-VLL-Pusher/ryu". This file is necessary for the installat
    - exit or ctrl + D;
 
 4) Wait for the conclusion.
+
+##########################################################################################
+### 5.  Segment routing examples
+##########################################################################################
+
+See "Small scale topology" (Segment Routing paths deployment in the emulator) example in https://github.com/netgroup/SDN-TE-SR-tools
+
 
 ##########################################################################################
 
