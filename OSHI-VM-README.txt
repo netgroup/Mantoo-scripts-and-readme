@@ -286,7 +286,7 @@ Now the topology is started and properly configured.
 1-GUI) Load the example topology: from the Topology menu in the top bar, select Import topology from file
 Choose the file /home/user/workspace/Dreamer-Mininet-Extensions/topo/topo_vll_pw.json
 
-Depoly the topology: In the left frame, from the Deployment menu, select Deploy.
+Deploy the topology: In the left frame, from the Deployment menu, select Deploy.
 In the deployment window on the bottom, type deploy and then press enter.
 
 2-GUI) Wait for the end of the deployment (you can see the list of node started with their management IP addresses, then "Starting CLI" and the prompt).
