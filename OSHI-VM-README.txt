@@ -51,7 +51,7 @@ The OSHI-VM contains all the projects related to OSHI, in the folder /home/user/
 - Dreamer-ryu                
 - floodlight-0.90            
 
-- sdn-te-sr-tools      (See the Segment Routing section in the website) 
+- sdn-te-sr-tools   (See the Segment Routing section in the website) 
 
 *** Dreamer-Mininet-Extensions
 It extends Mininet in order to allow the emulation of OSHI nodes in this tool
@@ -106,17 +106,19 @@ local copy of floodlight 0.90
 tools for SDN based Traffic Engineering 
 
 *** OSHI-Monitoring
-(not included in OSHI-VM_6b, the repo needs to be checkout from github)
 tools for monitoring traffic on links and saving the information in .rrd databases
 
 *** OSHI-REST-server
-(not included in OSHI-VM_6b, the repo needs to be checkout from github)
 it can provide various services, currently it creates the .png files with traffic statistics
 
 
 ##########################################################################################
 ### 0.1 Release notes
 ##########################################################################################
+
+OSHI-VM_7b released 2016-03-30
+- added the Segment Routing use case, see Readme in https://github.com/netgroup/SDN-TE-SR-tools
+- added the /home/user/workspace/OSHI-Monitoring and /home/user/workspace/OSHI-REST-server folders (not yet fully supported)
 
 OSHI-VM_6b released 2015-11-06
 - Added the folder /home/user/workspace/Mantoo-scripts-and-readme
