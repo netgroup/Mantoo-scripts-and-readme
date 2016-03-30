@@ -9,4 +9,4 @@ echo "#################################################"
 
 WORKSPACE="workspace"
 cd /home/user/$WORKSPACE/dreamer-ryu/ryu/app
-ryu-manager --verbose --observe-links ofctl_rest.py rest_topology
+ryu-manager --observe-links ofctl_rest.py rest_topology
