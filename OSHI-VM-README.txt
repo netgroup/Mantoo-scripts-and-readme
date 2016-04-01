@@ -116,7 +116,7 @@ it can provide various services, currently it creates the .png files with traffi
 ### 0.1 Release notes
 ##########################################################################################
 
-OSHI-VM_7b released 2016-03-30
+OSHI-VM_7b released 2016-04-01
 - added the Segment Routing use case, see Readme in https://github.com/netgroup/SDN-TE-SR-tools
 - ecplipse is included as needed for the development of the SR allocation algorithms (in java)
 - added the /home/user/workspace/OSHI-Monitoring and /home/user/workspace/OSHI-REST-server folders (not yet fully supported)
