@@ -11,7 +11,7 @@ IMPORTANT: you may UPDATE all the projects in the OSHI Virtual Machine
 to their latest version by running the update script
 *** simply click the "update" desktop icon ***
 
-Readme version: 2016-03-30
+Readme version: 2016-04-01
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
 
 password for user: 1234 
@@ -51,7 +51,7 @@ The OSHI-VM contains all the projects related to OSHI, in the folder /home/user/
 - Dreamer-ryu                
 - floodlight-0.90            
 
-- sdn-te-sr-tools   (See the Segment Routing section in the website) 
+- sdn-te-sr-tools 
 
 *** Dreamer-Mininet-Extensions
 It extends Mininet in order to allow the emulation of OSHI nodes in this tool
