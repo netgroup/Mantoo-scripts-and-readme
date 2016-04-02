@@ -19,22 +19,38 @@ printandexec () {
 for REPO_DIR in ${REPOS[@]}; 
 do
 	if [ -d $REPO_DIR ]; then
+		echo ""
   		# It will enter here if $REPO_dir exists.
 		printandexec cd $REPO_DIR
 
-		if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
-			echo "Changes not staged for commit, delete all?"
-			read -r -p "Are you sure? [y/N] " response
-			if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-	    		git stash
-	    		git pull
-			fi
-		else
+		if [ "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+			#echo "nothing to commit, working directory clean"
 			git pull
+		else
+		#if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+			printandexec git status
+			echo ""
+			echo "Your working directory $REPO_DIR has some changes."
+			echo "What do you want to do:"
+			echo "- Delete (stash) your changes and pull from git [d/D]"
+			echo "- Do nothing (skip pull) [n/N]"
+			echo "- Try to pull [Press any other key]"
+			read -r -p "? " response
+			if [[ $response =~ ^([dD])$ ]]; then
+	    		printandexec git stash
+	    		printandexec git pull
+	    	else
+				if [[ $response =~ ^([nN])$ ]]; then
+					echo "skipped"
+		    	else
+		    		printandexec git pull
+		    	fi
+			fi
 		fi	
 	fi
 done
 
 printandexec ./update_all_body.sh
 
+echo ""
 read -r -p "Press enter to exit" response

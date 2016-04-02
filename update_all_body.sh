@@ -6,8 +6,11 @@ if [ "$1" = "my_workspace" ];then
 	REPO_PATH=/home/user/my_workspace
 fi	
 
-REPOS[0]=$REPO_PATH/Mantoo-scripts-and-readme
+#REPOS[0]=$REPO_PATH/Mantoo-scripts-and-readme
 #https://github.com/netgroup/Mantoo-scripts-and-readme.git
+
+REPOS[0]=$REPO_PATH/Dreamer-Testbed-Deployer
+#https://github.com/netgroup/Dreamer-Testbed-Deployer
 
 REPOS[1]=$REPO_PATH/Dreamer-Management-Scripts
 #https://github.com/netgroup/Dreamer-Management-Scripts.git
@@ -48,8 +51,6 @@ REPOS[12]=$REPO_PATH/OSHI-REST-server
 REPOS[13]=$REPO_PATH/sdn-te-sr-tools
 #https://github.com/netgroup/SDN-TE-SR-tools.git
 
-REPOS[14]=$REPO_PATH/Dreamer-Testbed-Deployer
-#https://github.com/netgroup/Dreamer-Testbed-Deployer
 
 printandexec () {
 		echo "$@"
@@ -59,19 +60,43 @@ printandexec () {
 for REPO_DIR in ${REPOS[@]}; 
 do
 	if [ -d $REPO_DIR ]; then
+		echo ""
   		# It will enter here if $REPO_dir exists.
 		printandexec cd $REPO_DIR
 
-		if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
-			echo "Changes not staged for commit, delete all?"
-			read -r -p "Are you sure? [y/N] " response
-			if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-	    		git stash
-	    		git pull
-			fi
-		else
+		if [ "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+			#echo "nothing to commit, working directory clean"
 			git pull
+		else
+		#if [ ! "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+			printandexec git status
+			echo ""
+			echo "Your working directory $REPO_DIR has some changes."
+			echo "What do you want to do:"
+			echo "- Delete (stash) your changes and pull from git [d/D]"
+			echo "- Do nothing (skip pull) [n/N]"
+			echo "- Try to pull [Press any other key]"
+			read -r -p "? " response
+			if [[ $response =~ ^([dD])$ ]]; then
+	    		printandexec git stash
+	    		printandexec git pull
+	    	else
+				if [[ $response =~ ^([nN])$ ]]; then
+					echo "skipped"
+		    	else
+		    		printandexec git pull
+		    	fi
+			fi
 		fi	
+	else 
+		echo ""
+		echo "Directory $REPO_DIR is not present"
 	fi
 done
 #read -r -p "Press enter to exit" response
+
+
+#			if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+#	    		git stash
+#	    		git pull
+#			fi
