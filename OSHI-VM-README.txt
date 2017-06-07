@@ -11,7 +11,7 @@ IMPORTANT: you may UPDATE all the projects in the OSHI Virtual Machine
 to their latest version by running the update script
 *** simply click the "update" desktop icon ***
 
-Readme version: 2016-04-01
+Readme version: 2016-06-08
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
 
 password for user: 1234 
