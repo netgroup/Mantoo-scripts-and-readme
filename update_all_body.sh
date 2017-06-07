@@ -6,6 +6,10 @@ if [ "$1" = "my_workspace" ];then
 	REPO_PATH=/home/user/my_workspace
 fi	
 
+if [ "$1" = "bitbucket" ];then
+	echo "BITBUCKET!!!!!!!!!!!"
+fi	
+
 #REPOS[0]=$REPO_PATH/Mantoo-scripts-and-readme
 #https://github.com/netgroup/Mantoo-scripts-and-readme.git
 
@@ -57,6 +61,15 @@ REPOS[14]=$REPO_PATH/RDCL3D
 REPOS[15]=$REPO_PATH/rdcl-agents
 #https://github.com/netgroup/rdcl-agents.git
 
+if [ "$1" = "bitbucket" ];then
+	REPOS[16]=$REPO_PATH/test-rdcl
+	#https://ssalsano@bitbucket.org/ssalsano/test-rdcl.git
+
+	REPOS[17]=$REPO_PATH/rdcl-agent
+	#https://ssalsano@bitbucket.org/ssalsano/rdcl-agent.git
+fi	
+
+
 printandexec () {
 		echo "$@"
 		eval "$@"
@@ -101,6 +114,11 @@ done
 
 MIGRATE_REPOS[0]=$REPO_PATH/RDCL3D
 #https://github.com/superfluidity/RDCL3D.git
+
+if [ "$1" = "bitbucket" ];then
+	MIGRATE_REPOS[1]=$REPO_PATH/test-rdcl
+	#https://ssalsano@bitbucket.org/ssalsano/test-rdcl.git
+fi	
 
 
 for REPO_DIR in ${MIGRATE_REPOS[@]}; 

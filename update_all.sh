@@ -6,6 +6,12 @@ if [ "$1" = "my_workspace" ];then
 	REPO_PATH=/home/user/my_workspace
 fi	
 
+UPDATE_ALL_BODY=./update_all_body.sh
+if [ "$1" = "bitbucket" ];then
+	UPDATE_ALL_BODY="./update_all_body.sh bitbucket"
+fi	
+
+
 
 REPOS[0]=$REPO_PATH/Mantoo-scripts-and-readme
 #https://github.com/netgroup/Mantoo-scripts-and-readme.git
@@ -50,7 +56,7 @@ do
 	fi
 done
 
-printandexec ./update_all_body.sh
-
+#printandexec ./update_all_body.sh
+printandexec $UPDATE_ALL_BODY
 echo ""
 read -r -p "Press enter to exit" response
