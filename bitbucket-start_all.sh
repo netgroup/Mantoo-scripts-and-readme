@@ -39,14 +39,14 @@ start() {
 	unset PROMPT_COMMAND
 	source env/bin/activate
 	history -s python manage.py runserver 0.0.0.0:8000 
-	python manage.py runserver 0.0.0.0:8000" bash' --working-directory=/home/user/workspace/RDCL3D/code &
+	python manage.py runserver 0.0.0.0:8000" bash' --working-directory=/home/user/workspace/test-rdcl/code &
 
 	sleep 1
 
 	xfce4-terminal --disable-server -T OSHI_AGENT -e 'env PROMPT_COMMAND=" 
 	unset PROMPT_COMMAND
 	history -s npm start 
-	npm start" bash' --working-directory=/home/user/workspace/rdcl-agents &
+	npm start" bash' --working-directory=/home/user/workspace/rdcl-agent &
 
 	sleep 1
 

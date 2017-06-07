@@ -51,6 +51,11 @@ REPOS[12]=$REPO_PATH/OSHI-REST-server
 REPOS[13]=$REPO_PATH/sdn-te-sr-tools
 #https://github.com/netgroup/SDN-TE-SR-tools.git
 
+REPOS[14]=$REPO_PATH/RDCL3D
+#https://github.com/superfluidity/RDCL3D.git
+
+REPOS[15]=$REPO_PATH/rdcl-agents
+#https://github.com/netgroup/rdcl-agents.git
 
 printandexec () {
 		echo "$@"
@@ -93,6 +98,30 @@ do
 		echo "Directory $REPO_DIR is not present"
 	fi
 done
+
+MIGRATE_REPOS[0]=$REPO_PATH/RDCL3D
+#https://github.com/superfluidity/RDCL3D.git
+
+
+for REPO_DIR in ${MIGRATE_REPOS[@]}; 
+do
+	if [ -d $REPO_DIR ]; then
+		echo ""
+  		# It will enter here if $MIGRATE_REPO_dir exists.
+		printandexec cd $REPO_DIR/code
+
+		printandexec source env/bin/activate
+		printandexec python manage.py makemigrations sf_user projecthandler deploymenthandler
+		printandexec python manage.py migrate
+		printandexec deactivate
+
+	else 
+		echo ""
+		echo "Directory $REPO_DIR is not present"
+	fi
+done
+
+
 #read -r -p "Press enter to exit" response
 
 
