@@ -17,13 +17,17 @@ The updated version of this readme is available at http://netgroup.uniroma2.it/t
 password for user: 1234 
 password for root: root
 
+administrator of RDCL 3D GUI 
+login    : admin
+password : admin
+
 #########################################################################################################
 #TABLE OF CONTENT OF THIS README
 #########################################################################################################
 
 0.  Introduction
 0.1 Release notes
-1.  Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
+1.  Guided tour on RDCL3D (web GUI) and local deployment of topologies over mininet
 2.  Manual execution of the components 
 3.  Emulation example #1 - Deployment of a PW (PseudoWire) and a VLL (IP Virtual Leased Line)
 4.  Emulation example #2 - Deployment of Virtual Switches
@@ -53,6 +57,9 @@ The OSHI-VM contains all the projects related to OSHI, in the folder /home/user/
 
 - sdn-te-sr-tools 
 
+- RDCL3D
+- rdcl-agents
+
 *** Dreamer-Mininet-Extensions
 It extends Mininet in order to allow the emulation of OSHI nodes in this tool
 (by default Mininet does not support the deployment of OSHI nodes)
@@ -62,8 +69,9 @@ It is a python script that installs the tunnels (Virtual Leased Lines and Pseudo
 between the Customer Edge Router (CER)
 This is realized leveraging the REST API of the Topology's module and OFCTL's module of the RYU controller
 
-*** Dreamer-Topology3D
-Topology 3D (Designer Deployer & Director) a web GUI to design and control SDN experiments.
+*** Dreamer-Topology3D (deprecated)
+Topology 3D (Designer Deployer & Director) a web GUI to design and control SDN experiments 
+The new web GUI is RDCL 3D
 
 *** Dreamer-Topology-and-Service-Validator
 Topology and Service Validator is a server-side component used together with the Topology3D web GUI.
@@ -111,10 +119,16 @@ tools for monitoring traffic on links and saving the information in .rrd databas
 *** OSHI-REST-server
 it can provide various services, currently it creates the .png files with traffic statistics
 
+*** RDCL 3D
+RDCL 3D (Design Deploy & Direct) a web GUI to design and control SDN and NFV services and experiments 
+
 
 ##########################################################################################
 ### 0.1 Release notes
 ##########################################################################################
+
+OSHI-VM_8 released 2017-06-07
+- added the RDCL 3D framework, see https://github.com/superfluidity/RDCL3D
 
 OSHI-VM_7b released 2016-04-01
 - added the Segment Routing use case, see Readme in https://github.com/netgroup/SDN-TE-SR-tools
@@ -142,27 +156,39 @@ OSHI-VM_5 released 2015-10-10
 OSHI_VM4 released 2015-07-18
 
 ##########################################################################################
-### 1. Guided tour on Topology3D (web GUI) and local deployment of topologies over mininet
+### 1. Guided tour on RDCL 3D (web GUI) and local deployment of topologies over mininet
 ##########################################################################################
 
 Click on the "go" launcher icon on the desktop.
 
-It starts two terminal shells (running django and node.js) and the Firefox browser,
-opened at the Topology3D page.
+It starts two terminal shells (running django and node.js) and the Chromium browser,
+opened at the RDCL 3D home page.
 
-Using the View menu in the top bar, switch the view to VLL (Virtual Leased Line). 
+Click on Projects->More Info and add a new project.
+Choose project type OSHI, click on Example project and select example_network_3cr_2p2_2ce.
+Enter a project name and click Create.
+
+Click on Oshi type->More Info,
+in the list of Oshi descriptors locate example_network_3cr_2pe_2ce 
+click on the Action drop down menu, select Show Graph
+
+You can change the view (Data, VLL) using the View button on the left side.
+
+Switch the view to VLL (Virtual Leased Line). 
 A VLL between two CER (Customer Edge Router) is shown. This is the service to be
 realized.
 
-Using the Deployment menu  in the top bar, click on the Deploy command.
-Now click with the mouse on the Deployment tab at the bottom of the page,
-to put the focus on it. Type:
-> deploy 
-and press enter. The deployment of the topology on Mininet will start, at the end in the
-deployment shell the list of nodes with their management IP address will be shown.
+Go back to the list of Oshi descriptors and select Deploy among the actions.
+Give a name to the deployment (e.g. the day or the date).
+Click on New agent to create a new deployment agent.
+Call it mininet_agent_3030 and provide as URL http://localhost:3030
 
-You can press Ctrl and click on a node in the topology and a terminal shell
-on that node will appear at the bottom of the web page as new tab.
+Click on Deploy, the deployment of the topology on Mininet will start.
+
+Click on Monitoring on the left sidebar and see the topology of the launched deployment.
+
+Right click on a node and select Open console, a terminal shell
+on that node will appear as new tab.
 
 You can execute arbitrary commands on the shell of a terminal, for example:
 > ip route
