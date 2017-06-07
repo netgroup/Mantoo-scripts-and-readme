@@ -11,7 +11,7 @@ IMPORTANT: you may UPDATE all the projects in the OSHI Virtual Machine
 to their latest version by running the update script
 *** simply click the "update" desktop icon ***
 
-Readme version: 2016-06-08
+Readme version: 2017-06-08
 The updated version of this readme is available at http://netgroup.uniroma2.it/twiki/bin/view/Oshi/ReadMe
 
 password for user: 1234 
@@ -122,6 +122,8 @@ it can provide various services, currently it creates the .png files with traffi
 *** RDCL 3D
 RDCL 3D (Design Deploy & Direct) a web GUI to design and control SDN and NFV services and experiments 
 
+*** rdcl-agents
+A set of agents that can be used in the RDCL 3D framework to deploy projects on execution platforms.
 
 ##########################################################################################
 ### 0.1 Release notes
@@ -161,8 +163,10 @@ OSHI_VM4 released 2015-07-18
 
 Click on the "go" launcher icon on the desktop.
 
-It starts two terminal shells (running django and node.js) and the Chromium browser,
+It starts two terminal shells (named RDCL_3D and OSHI_AGENT) and the Chromium browser,
 opened at the RDCL 3D home page.
+
+Sign in on RDCL 3D (Username: admin - Password: admin)
 
 Click on Projects->More Info and add a new project.
 Choose project type OSHI, click on Example project and select example_network_3cr_2p2_2ce.
