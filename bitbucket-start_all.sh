@@ -48,7 +48,7 @@ start() {
 	history -s npm start 
 	npm start" bash' --working-directory=/home/user/workspace/rdcl-agent &
 
-	sleep 1
+	sleep 3
 
 	chromium-browser http://localhost:8000
 
