@@ -6,10 +6,10 @@ if [ "$1" = "my_workspace" ];then
 	REPO_PATH=/home/user/my_workspace
 fi	
 
-UPDATE_ALL_BODY=./update_all_body.sh
-if [ "$1" = "bitbucket" ];then
-	UPDATE_ALL_BODY="./update_all_body.sh bitbucket"
-fi	
+UPDATE_ALL_BODY="./update_all_body.sh $1"
+#if [ "$1" = "bitbucket" ];then
+#	UPDATE_ALL_BODY="./update_all_body.sh bitbucket"
+#fi	
 
 
 
