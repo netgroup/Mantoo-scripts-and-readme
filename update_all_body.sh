@@ -133,6 +133,7 @@ do
 		printandexec cd $REPO_DIR/code
 
 		printandexec source env/bin/activate
+		printandexec pip install -r requirements.txt
 		printandexec python manage.py makemigrations sf_user projecthandler deploymenthandler
 		printandexec python manage.py migrate
 		printandexec deactivate
