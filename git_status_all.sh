@@ -21,7 +21,7 @@ REPOS[11]=$REPO_PATH/OSHI-monitoring
 REPOS[12]=$REPO_PATH/OSHI-REST-server
 REPOS[13]=$REPO_PATH/sdn-te-sr-tools
 REPOS[14]=$REPO_PATH/RDCL3D
-REPOS[15]=$REPO_PATH/rdcl-agents
+REPOS[15]=$REPO_PATH/rdcl-agent
 REPOS[16]=$REPO_PATH/Mantoo-scripts-and-readme
 
 

@@ -46,7 +46,7 @@ start() {
 	xfce4-terminal --disable-server -T OSHI_AGENT -e 'env PROMPT_COMMAND=" 
 	unset PROMPT_COMMAND
 	history -s npm start 
-	npm start" bash' --working-directory=/home/user/workspace/rdcl-agents &
+	npm start" bash' --working-directory=/home/user/workspace/rdcl-agent &
 
 	sleep 4
 

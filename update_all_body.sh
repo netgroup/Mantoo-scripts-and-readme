@@ -60,7 +60,7 @@ REPOS[13]=$REPO_PATH/sdn-te-sr-tools
 REPOS[14]=$REPO_PATH/RDCL3D
 #https://github.com/superfluidity/RDCL3D.git
 
-REPOS[15]=$REPO_PATH/rdcl-agents
+REPOS[15]=$REPO_PATH/rdcl-agent
 #https://github.com/netgroup/rdcl-agents.git
 
 fi	
