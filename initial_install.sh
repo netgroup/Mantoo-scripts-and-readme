@@ -91,12 +91,13 @@ pip install networkx
 
 deactivate
 
-sudo -u $user mkdir $WORKSPACE_DIR
-sudo -u $user cd $WORKSPACE_DIR
+sudo -u $USER mkdir $WORKSPACE_DIR
+cd $WORKSPACE_DIR
 
-sudo -u $user git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
-sudo -u $user cd Mantoo-scripts-and-readme
-sudo -u $user ./update_all_body.sh clone_repos
+sudo -u $USER git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
+cd Mantoo-scripts-and-readme
+sudo -u $USER ./update_all_body.sh clone_repos
+
 
 
 # Change password for root
