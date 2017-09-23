@@ -12,64 +12,64 @@ echo "PARAMETER: $1"
 
 if [ "$1" != "bitbucketonly" ];then
 
-#REPOS[0]=$REPO_PATH/Mantoo-scripts-and-readme
+#REPOS[0]=Mantoo-scripts-and-readme
 #https://github.com/netgroup/Mantoo-scripts-and-readme.git
 
-REPOS[0]=$REPO_PATH/Dreamer-Testbed-Deployer
+REPOS[0]=Dreamer-Testbed-Deployer
 #https://github.com/netgroup/Dreamer-Testbed-Deployer
 
-REPOS[1]=$REPO_PATH/Dreamer-Management-Scripts
+REPOS[1]=Dreamer-Management-Scripts
 #https://github.com/netgroup/Dreamer-Management-Scripts.git
 
-REPOS[2]=$REPO_PATH/Dreamer-Measurements-Tools
+REPOS[2]=Dreamer-Measurements-Tools
 #https://github.com/netgroup/Dreamer-Measurements-Tools.git
 
-REPOS[3]=$REPO_PATH/Dreamer-Mininet-Extensions
+REPOS[3]=Dreamer-Mininet-Extensions
 #https://github.com/netgroup/Dreamer-Mininet-Extensions.git
 
-REPOS[4]=$REPO_PATH/dreamer-ryu
+REPOS[4]=dreamer-ryu
 #https://github.com/netgroup/dreamer-ryu.git
 
-REPOS[5]=$REPO_PATH/Dreamer-Topology3D
+REPOS[5]=Dreamer-Topology3D
 #https://github.com/netgroup/Dreamer-Topology3D.git
 
-REPOS[6]=$REPO_PATH/Dreamer-Topology-and-Service-Validator
+REPOS[6]=Dreamer-Topology-and-Service-Validator
 #https://github.com/netgroup/Dreamer-Topology-and-Service-Validator.git
 
-REPOS[7]=$REPO_PATH/Dreamer-Topology-Parser-and-Validator
+REPOS[7]=Dreamer-Topology-Parser-and-Validator
 #https://github.com/netgroup/Dreamer-Topology-Parser.git
 
-REPOS[8]=$REPO_PATH/Dreamer-VLL-Pusher
+REPOS[8]=Dreamer-VLL-Pusher
 #https://github.com/netgroup/Dreamer-VLL-Pusher.git
 
-REPOS[9]=$REPO_PATH/floodlight-0.90
+REPOS[9]=floodlight-0.90
 #https://github.com/netgroup/floodlight.git
 
-REPOS[10]=$REPO_PATH/Dreamer-Experiment-Handler
+REPOS[10]=Dreamer-Experiment-Handler
 #https://github.com/netgroup/Dreamer-Experiment-Handler.git
 
-REPOS[11]=$REPO_PATH/OSHI-monitoring
+REPOS[11]=OSHI-monitoring
 #https://github.com/netgroup/OSHI-monitoring.git
 
-REPOS[12]=$REPO_PATH/OSHI-REST-server
+REPOS[12]=OSHI-REST-server
 #https://github.com/netgroup/OSHI-REST-server.git
 
-REPOS[13]=$REPO_PATH/sdn-te-sr-tools
+REPOS[13]=sdn-te-sr-tools
 #https://github.com/netgroup/SDN-TE-SR-tools.git
 
-REPOS[14]=$REPO_PATH/RDCL3D
+REPOS[14]=RDCL3D
 #https://github.com/superfluidity/RDCL3D.git
 
-REPOS[15]=$REPO_PATH/rdcl-agent
+REPOS[15]=rdcl-agent
 #https://github.com/netgroup/rdcl-agents.git
 
 fi	
 
 if [[ "$1" = "bitbucket" || "$1" = "bitbucketonly" ]];then
-	REPOS[16]=$REPO_PATH/test-rdcl
+	REPOS[16]=test-rdcl
 	#https://ssalsano@bitbucket.org/ssalsano/test-rdcl.git
 
-	REPOS[17]=$REPO_PATH/rdcl-agent
+	REPOS[17]=rdcl-agent
 	#https://ssalsano@bitbucket.org/ssalsano/rdcl-agent.git
 fi	
 
@@ -79,8 +79,9 @@ printandexec () {
 		eval "$@"
 }
 
-for REPO_DIR in ${REPOS[@]}; 
+for REPO_NAME in ${REPOS[@]}; 
 do
+	REPO_DIR="$REPO_PATH/$REPO_NAME"
 	if [ -d $REPO_DIR ]; then
 		echo ""
   		# It will enter here if $REPO_dir exists.
@@ -113,20 +114,33 @@ do
 	else 
 		echo ""
 		echo "Directory $REPO_DIR is not present"
+		if [ "$1" = "clone_repos" ];then
+			cd $REPO_PATH
+			if [ "$REPO_NAME" = "RDCL3D" ];then
+				printandexec git clone https://github.com/superfluidity/$REPO_NAME.git
+				cd $REPO_NAME/code
+				printandexec virtualenv env
+			else
+				printandexec git clone https://github.com/netgroup/$REPO_NAME.git
+			fi
+		fi	
+
+
 	fi
 done
 
-MIGRATE_REPOS[0]=$REPO_PATH/RDCL3D
+MIGRATE_REPOS[0]=RDCL3D
 #https://github.com/superfluidity/RDCL3D.git
 
 if [[ "$1" = "bitbucket" || "$1" = "bitbucketonly" ]];then
-	MIGRATE_REPOS[1]=$REPO_PATH/test-rdcl
+	MIGRATE_REPOS[1]=test-rdcl
 	#https://ssalsano@bitbucket.org/ssalsano/test-rdcl.git
 fi	
 
 
-for REPO_DIR in ${MIGRATE_REPOS[@]}; 
+for REPO_NAME in ${MIGRATE_REPOS[@]}; 
 do
+	REPO_DIR="$REPO_PATH/$REPO_NAME"
 	if [ -d $REPO_DIR ]; then
 		echo ""
   		# It will enter here if $MIGRATE_REPO_dir exists.
