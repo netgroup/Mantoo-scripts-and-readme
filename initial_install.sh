@@ -1,7 +1,7 @@
 #!/bin/bash
 
-USER="user"
-HOME_DIR="/home/$USER"
+MYUSER="user"
+HOME_DIR="/home/$MYUSER"
 WORKSPACE_DIR="$HOME_DIR/workspace"
 MININET_DIR="$HOME_DIR/mininet"
 
@@ -72,7 +72,7 @@ make install
 
 
 mkdir $MININET_DIR
-chown $USER:$USER $MININET_DIR
+chown $MYUSER:$MYUSER $MININET_DIR
 cd $MININET_DIR
 
 # Install Mininet (as root)
@@ -81,7 +81,7 @@ git clone git://github.com/mininet/mininet
 mininet/util/install.sh -a
 
 cd mininet
-virtualenv env
+virtualenv --system-site-packages env
 source env/bin/activate
 
 # Python dependencies
@@ -91,12 +91,12 @@ pip install networkx
 
 deactivate
 
-sudo -u $USER mkdir $WORKSPACE_DIR
+sudo -u $MYUSER mkdir $WORKSPACE_DIR
 cd $WORKSPACE_DIR
 
-sudo -u $USER git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
+sudo -u $MYUSER git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
 cd Mantoo-scripts-and-readme
-sudo -u $USER ./update_all_body.sh clone_repos
+sudo -u $MYUSER ./update_all_body.sh clone_repos
 
 
 
