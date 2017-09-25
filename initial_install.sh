@@ -16,8 +16,8 @@ echo "#############################################################"
 echo -e "\n"
 
 # disable apt-daily.service if it is running
-systemctl stop apt-daily.service
-systemctl kill --kill-who=all apt-daily.service
+sudo systemctl stop apt-daily.service
+sudo systemctl kill --kill-who=all apt-daily.service
 # wait until `apt-get updated` has been killed
 while ! (systemctl list-units --all apt-daily.service | fgrep -q dead)
 do
@@ -26,37 +26,37 @@ done
 
 
 # Update apt
-apt-get update
+sudo apt-get update
 # Install openssh dependency
-apt-get install -y openssh-server
+sudo apt-get install -y openssh-server
 # Install tcpdump
-apt-get install -y tcpdump
+sudo apt-get install -y tcpdump
 # Install iproute
-apt-get install -y iproute
+sudo apt-get install -y iproute
 # Install python-pip
-apt-get install -y python-pip
+sudo apt-get install -y python-pip
 # Install virtualenv
-apt-get install -y virtualenv
+sudo apt-get install -y virtualenv
 # Install ssh-pass
-apt-get install -y sshpass
+sudo apt-get install -y sshpass
 # Install wondershaper
-apt-get install -y wondershaper
+sudo apt-get install -y wondershaper
 # Install git-core
-apt-get install -y git-core
+sudo apt-get install -y git-core
 # Install net-tools
-apt-get install -y net-tools
+sudo apt-get install -y net-tools
 # Install bison
-apt-get install -y bison
+sudo apt-get install -y bison
 # Install flex
-apt-get install -y flex
+sudo apt-get install -y flex
 # Install traceroute
-apt-get install -y traceroute
+sudo apt-get install -y traceroute
 
 # Install sublime evaluation version
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-apt-get update
-apt-get install -y sublime-text
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
+sudo apt-get install -y sublime-text
 
 
 # Install IPRoute2
@@ -68,35 +68,35 @@ cd iproute2-4.13.0
 # Compile everything
 make
 # Install new iproute2
-make install
+sudo make install
 
 
 mkdir $MININET_DIR
-chown $MYUSER:$MYUSER $MININET_DIR
+#chown $MYUSER:$MYUSER $MININET_DIR
 cd $MININET_DIR
 
-# Install Mininet (as root)
+# Install Mininet
 git clone git://github.com/mininet/mininet
 # Run "ALL" setup
+
 mininet/util/install.sh -a
 
-cd mininet
-virtualenv --system-site-packages env
-source env/bin/activate
+#virtualenv env
+#source env/bin/activate
 
 # Python dependencies
 pip install ipaddress
 # Networkx
-pip install networkx
+pip install networkx==1.11
 
-deactivate
+#deactivate
 
-sudo -u $MYUSER mkdir $WORKSPACE_DIR
+mkdir $WORKSPACE_DIR
 cd $WORKSPACE_DIR
 
-sudo -u $MYUSER git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
+git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
 cd Mantoo-scripts-and-readme
-sudo -u $MYUSER ./update_all_body.sh clone_repos
+./update_all_body.sh clone_repos
 
 
 

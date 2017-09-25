@@ -63,13 +63,17 @@ REPOS[14]=RDCL3D
 REPOS[15]=rdcl-agent
 #https://github.com/netgroup/rdcl-agents.git
 
+REPOS[16]=srv6-mantoo
+#https://github.com/netgroup/srv6-mantoo.git
+
+
 fi	
 
 if [[ "$1" = "bitbucket" || "$1" = "bitbucketonly" ]];then
-	REPOS[16]=test-rdcl
+	REPOS[17]=test-rdcl
 	#https://ssalsano@bitbucket.org/ssalsano/test-rdcl.git
 
-	REPOS[17]=rdcl-agent
+	REPOS[18]=rdcl-agent
 	#https://ssalsano@bitbucket.org/ssalsano/rdcl-agent.git
 fi	
 
