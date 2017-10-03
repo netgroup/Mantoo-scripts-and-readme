@@ -194,7 +194,8 @@ sudo modprobe 8021q &&
 # Make 801q module loading permanent
 if [ $(sudo cat /etc/modules | grep 8021q | wc -l) -eq 0 ]
 	then
-		sudo echo "8021q" >> /etc/modules
+		#echo "8021q" >> /etc/modules
+        echo "8021q" | sudo tee -a /etc/modules > /dev/null
 fi
 
 
@@ -278,7 +279,8 @@ sudo depmod -a &&
 sudo modprobe openvswitch &&
 if [ $(cat /etc/modules | grep openvswitch | wc -l) -eq 0 ]
 	then
-		sudo echo "openvswitch" >> /etc/modules
+		#echo "openvswitch" >> /etc/modules
+        echo "openvswitch" | sudo tee -a /etc/modules > /dev/null
 fi
 # Create and initialize the database
 sudo rm -f -r /usr/local/etc/openvswitch/ 2> /dev/null
@@ -303,7 +305,7 @@ sudo ovs-vswitchd --pidfile --detach &&
 
 echo -e "\n\n#####################################"
 echo -e "\n-Adding OpenVSwitch service"
-sudo echo -e '#!/bin/bash
+echo -e '#!/bin/bash
 #
 # start/stop openvswitch
 ### BEGIN INIT INFO
@@ -388,7 +390,7 @@ echo "Usage: openvswitchd {start|stop|status|restart}."
 exit 1
 ;;
 esac\n
-exit 0' > /etc/init.d/openvswitchd &&
+exit 0' | sudo tee -a /etc/init.d/openvswitchd > /dev/null  &&
 sudo chmod +x /etc/init.d/openvswitchd &&
 sudo update-rc.d openvswitchd defaults 
 
