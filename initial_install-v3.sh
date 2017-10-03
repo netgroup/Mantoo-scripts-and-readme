@@ -101,6 +101,8 @@ sudo apt-get install -y texinfo
 #sudo apt-get install -y quagga
 wget https://launchpad.net/~ubuntu-security-proposed/+archive/ubuntu/ppa/+build/11037964/+files/quagga_0.99.24.1-2ubuntu1.2_amd64.deb
 sudo apt-get install libreadline6
+sudo dpkg -i quagga_0.99.24.1-2ubuntu1.2_amd64.deb
+
 sudo touch /etc/quagga/zebra.conf
 sudo touch /etc/quagga/ospfd.conf
 
