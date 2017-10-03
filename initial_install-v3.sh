@@ -29,26 +29,62 @@ done
 sudo apt-get update
 # Install openssh dependency
 sudo apt-get install -y openssh-server
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing tcpdump"
 # Install tcpdump
 sudo apt-get install -y tcpdump
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing iproute"
 # Install iproute
 sudo apt-get install -y iproute
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing python-pip"
 # Install python-pip
 sudo apt-get install -y python-pip
+
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing virtualenv"
 # Install virtualenv
 sudo apt-get install -y virtualenv
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing sshpass"
 # Install ssh-pass
 sudo apt-get install -y sshpass
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing wondershaper"
 # Install wondershaper
 sudo apt-get install -y wondershaper
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing git-core"
 # Install git-core
 sudo apt-get install -y git-core
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing net-tools"
 # Install net-tools
 sudo apt-get install -y net-tools
+
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing bison"
 # Install bison
 sudo apt-get install -y bison
+
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing flex"
 # Install flex
 sudo apt-get install -y flex
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing traceroute"
 # Install traceroute
 sudo apt-get install -y traceroute
 
@@ -61,39 +97,51 @@ sudo apt-get install -y sublime-text
 #################################
 #adding packages from Mantoo/OSHI
 
-echo -e "\n-Installing VIM"
+echo -e "\n\n#####################################"
+echo -e "\n-Installing vim"
 sudo apt-get install -y vim &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing python-simplejson"
 sudo apt-get install -y python-simplejson &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing Python-QT4"
 sudo apt-get install -y python-qt4 &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing Python Zope Interface"
 sudo apt-get install -y python-zopeinterface &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing Python-Twisted-Conch"
 sudo apt-get install -y python-twisted-conch &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing pkg-config"
 sudo apt-get install -y pkg-config &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing dh-autoreconf"
 sudo apt-get install -y dh-autoreconf &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing ipcalc"
 sudo apt-get install -y ipcalc &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing Linux Headers for Linux kernel `uname -r`"
 sudo apt-get install -y linux-headers-`uname -r` &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing OpenVPN"
 sudo apt-get install -y openvpn &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing VLAN packages"
 sudo apt-get install -y vlan &&
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing Quagga router services"
 sudo apt-get install -y gawk
 sudo apt-get install -y texinfo
@@ -106,6 +154,7 @@ sudo dpkg -i quagga_0.99.24.1-2ubuntu1.2_amd64.deb
 sudo touch /etc/quagga/zebra.conf
 sudo touch /etc/quagga/ospfd.conf
 
+echo -e "\n\n#####################################"
 echo -e "\n-Upgrading Quagga router services"
 
 # Download quagga with the support for fpm
@@ -139,6 +188,7 @@ cd .libs/
 sudo cp ospfd /usr/lib/quagga/ospfd
 
 
+echo -e "\n\n#####################################"
 echo -e "-VLAN module setup"
 sudo modprobe 8021q &&
 # Make 801q module loading permanent
@@ -151,12 +201,14 @@ fi
 #echo -e "\n-Installing iproute"
 #apt-get install -y iproute
 
+echo -e "\n\n#####################################"
 echo -e "\n-Installing sudo"
 sudo apt-get install -y sudo
 
 ##########################################
 
-
+echo -e "\n\n#####################################"
+echo -e "\n-Upgrading iproute2"
 # Install IPRoute2
 wget https://git.kernel.org/pub/scm/linux/kernel/git/shemminger/iproute2.git/snapshot/iproute2-4.13.0.tar.gz
 # Extract the content
@@ -169,6 +221,8 @@ make
 sudo make install
 
 
+echo -e "\n\n#####################################"
+echo -e "\n-Installing mininet"
 mkdir $MININET_DIR
 #chown $MYUSER:$MYUSER $MININET_DIR
 cd $MININET_DIR
@@ -189,62 +243,66 @@ pip install networkx==1.11
 # netaddr (tool for subnetting)
 pip install netaddr
 
-
-#deactivate
+echo -e "\n\n#####################################"
+echo -e "\n-Re-installing OpenVSwitch from sources"
 
 sudo /etc/init.d/openvswitch-switch stop
 sudo /etc/init.d/openvswitch-testcontroller stop
-sudo apt-get remove openvswitch-switch
-sudo apt-get remove openvswitch-testcontroller
+sudo apt-get remove -y openvswitch-switch
+sudo apt-get remove -y openvswitch-testcontroller
 
 
-echo -e "\n-Installing OpenVSwitch"
 # Creating folder for OVS under /opt/ovs
-rm -f -r /opt/ovs 2> /dev/null
-mkdir -p /opt/ovs
+sudo rm -f -r /opt/ovs 2> /dev/null
+sudo mkdir -p /opt/ovs
 # Remove previous kernel module
-modprobe -r openvswitch 2> /dev/null
-mv /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko.orig 2> /dev/null
+sudo modprobe -r openvswitch 2> /dev/null
+sudo mv /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko.orig 2> /dev/null
 # Downloading
 cd /opt/ 
-git clone https://github.com/openvswitch/ovs.git
+sudo git clone https://github.com/openvswitch/ovs.git
 cd  /opt/ovs/ 
 # Boot up and configuring sources
-./boot.sh &&
-./configure --with-linux=/lib/modules/`uname -r`/build &&
+sudo ./boot.sh &&
+sudo ./configure --with-linux=/lib/modules/`uname -r`/build &&
 # Make
-make &&
-make install &&
+sudo make &&
+sudo make install &&
 # OVS module installation
-make modules_install &&
-mkdir -p /lib/modules/`uname -r`/kernel/openvswitch
-cp /opt/ovs/datapath/linux/openvswitch.ko /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko
-depmod -a &&
+sudo make modules_install &&
+sudo mkdir -p /lib/modules/`uname -r`/kernel/openvswitch
+sudo cp /opt/ovs/datapath/linux/openvswitch.ko /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko
+sudo depmod -a &&
 # Making module loading permanent
-modprobe openvswitch &&
+sudo modprobe openvswitch &&
 if [ $(cat /etc/modules | grep openvswitch | wc -l) -eq 0 ]
 	then
-		echo "openvswitch" >> /etc/modules
+		sudo echo "openvswitch" >> /etc/modules
 fi
 # Create and initialize the database
-rm -f -r /usr/local/etc/openvswitch/ 2> /dev/null
-mkdir -p /usr/local/etc/openvswitch &&
-rm -f -r /usr/local/var/run/openvswitch/ 2> /dev/null
-mkdir -p /usr/local/var/run/openvswitch &&
-ovsdb-tool create /usr/local/etc/openvswitch/conf.db /opt/ovs/vswitchd/vswitch.ovsschema &&
-ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock \
+sudo rm -f -r /usr/local/etc/openvswitch/ 2> /dev/null
+sudo mkdir -p /usr/local/etc/openvswitch &&
+sudo rm -f -r /usr/local/var/run/openvswitch/ 2> /dev/null
+sudo mkdir -p /usr/local/var/run/openvswitch &&
+sudo ovsdb-tool create /usr/local/etc/openvswitch/conf.db /opt/ovs/vswitchd/vswitch.ovsschema &&
+sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock \
                      --remote=db:Open_vSwitch,Open_vSwitch,manager_options \
                      --private-key=db:Open_vSwitch,SSL,private_key \
                      --certificate=db:Open_vSwitch,SSL,certificate \
                      --bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert \
                      --pidfile --detach
-ovs-vsctl --no-wait init &&
+sudo ovs-vsctl --no-wait init &&
+
 # Starting OVS
+echo -e "\n\n#####################################"
 echo -e "\n-Starting OpenVSwitch"
-ovs-vswitchd --pidfile --detach &&
+sudo ovs-vswitchd --pidfile --detach &&
 # Adding OVS as a service
+
+
+echo -e "\n\n#####################################"
 echo -e "\n-Adding OpenVSwitch service"
-echo -e '#!/bin/bash
+sudo echo -e '#!/bin/bash
 #
 # start/stop openvswitch
 ### BEGIN INIT INFO
@@ -330,8 +388,8 @@ exit 1
 ;;
 esac\n
 exit 0' > /etc/init.d/openvswitchd &&
-chmod +x /etc/init.d/openvswitchd &&
-update-rc.d openvswitchd defaults 
+sudo chmod +x /etc/init.d/openvswitchd &&
+sudo update-rc.d openvswitchd defaults 
 
 
 mkdir $WORKSPACE_DIR
