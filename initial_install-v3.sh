@@ -250,7 +250,7 @@ sudo /etc/init.d/openvswitch-switch stop
 sudo /etc/init.d/openvswitch-testcontroller stop
 sudo apt-get remove -y openvswitch-switch
 sudo apt-get remove -y openvswitch-testcontroller
-sudo apt autoremove
+sudo apt autoremove -y
 
 
 # Creating folder for OVS under /opt/ovs
