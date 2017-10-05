@@ -446,16 +446,29 @@ git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
 cd Mantoo-scripts-and-readme
 ./update_all_body.sh clone_repos
 
+echo -e "\n\n#####################################"
+echo -e "\n-Setting up admin password for RDCL 3D"
+
+cd $WORKSPACE_DIR
+cd RDCL3D/code
+source env/bin/activate
+python manage.py shell -c "from sf_user.models import CustomUser; CustomUser.objects.create_superuser('admin', 'admin')"
+deactivate
+
 
 echo -e "\n\n#####################################"
 echo -e "\n-Setting up Desktop"
+
+sudo cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/xubuntu-quantal-oshi-ok.png /usr/share/xfce4/backdrops
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/xfce4-desktop.xml $HOME_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/
+
 
 ln -s $WORKSPACE_DIR/Mantoo-scripts-and-readme/OSHI-VM-README.txt $HOME_DIR/Desktop/README.txt
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/go.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/stop.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/update.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/check-status.desktop $HOME_DIR/Desktop/
-cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/OSHI_VM_8 $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/OSHI_VM_9 $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/wireshark.desktop $HOME_DIR/Desktop/
 
 
