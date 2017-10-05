@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=check-status
+Comment=
+Exec=/home/user/workspace/Mantoo-scripts-and-readme/git_status_all.sh
+Icon=/home/user/workspace/Mantoo-scripts-and-readme/oshi_question.png
+Path=
+Terminal=true
+StartupNotify=false

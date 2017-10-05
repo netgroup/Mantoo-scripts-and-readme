@@ -1,0 +1,36 @@
+########################################################################################################
+#  OSHI VM - OSHI Virtual Machine
+########################################################################################################
+
+This Virtual Machine provides a ready-to-go environment to run experiments related to the OSHI framework
+
+You may refer to the OSHI Home Page for further information:
+http://netgroup.uniroma2.it/OSHI/ 
+
+OSHI-VM_8 released 2017-06-07
+- added the RDCL 3D framework, see https://github.com/superfluidity/RDCL3D
+
+OSHI-VM_7b released 2016-04-01
+- added the Segment Routing use case, see Readme in https://github.com/netgroup/SDN-TE-SR-tools
+- ecplipse is included as needed for the development of the SR allocation algorithms (in java)
+- added the /home/user/workspace/OSHI-Monitoring and /home/user/workspace/OSHI-REST-server folders (not yet fully supported)
+
+OSHI-VM_6b released 2015-11-06
+- Added the folder /home/user/workspace/Mantoo-scripts-and-readme
+- The update_all.sh script also updates /home/user/workspace/Mantoo-scripts-and-readme
+- New version of wireshark (1.12.8) is included
+- "Press enter" to exit the update_all.sh script has been added
+- The laucher icons in the desktop now points to the scripts in Mantoo-scripts-and-readme
+- A launcher icon "stop" has been added 
+- A launcher icon "check_status" has been added (git status on all projects)
+- /root/ryu_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
+- /home/user/service_start.sh is a symbolic link to the script in Mantoo-scripts-and-readme
+
+OSHI-VM_5 released 2015-10-10
+- A launcher icon named "go" on the desktop is used to launch the Topology3D GUI 
+  on the Firefox browser and the django and node.js backends with a single click
+- A launcher icon named "update" is used to sync up all the folder with the
+  corresponding repositories on github
+- Several improvements in the Topology3D GUI
+  
+OSHI_VM4 released 2015-07-18

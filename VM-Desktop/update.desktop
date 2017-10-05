@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=update
+Comment=
+Exec=/home/user/workspace/Mantoo-scripts-and-readme/update_all.sh
+Icon=/home/user/workspace/Mantoo-scripts-and-readme/oshi_download.png
+Path=
+Terminal=true
+StartupNotify=false

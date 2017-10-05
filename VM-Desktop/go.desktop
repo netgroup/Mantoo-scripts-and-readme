@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=go
+Comment=
+Exec=/home/user/workspace/Mantoo-scripts-and-readme/start_all.sh start
+Icon=/home/user/workspace/Mantoo-scripts-and-readme/oshi_starter.png
+Path=
+Terminal=false
+StartupNotify=false
+Name[en_US.UTF-8]=go
