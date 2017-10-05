@@ -310,13 +310,13 @@ echo -e '#!/bin/bash
 # start/stop openvswitch
 ### BEGIN INIT INFO
 # Provides: openvswitchd
-# Required-start: $remote_fs $syslog
-# Required-stop: $remote_fs $syslog
-# Default-start: 2 3 4 5
-# Default-stop: 0 1 6
-# Short-description: OpenVSwitch daemon
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: OpenVSwitch daemon
 # chkconfig: 2345 9 99
-# description: Activates/Deactivates all Open vSwitch to start at boot time.
+# Description: Activates/Deactivates all Open vSwitch to start at boot time.
 # processname: openvswitchd
 # config: /usr/local/etc/openvswitch/conf.db
 # pidfile: /usr/local/var/run/openvswitch/ovs-vswitchd.pid
