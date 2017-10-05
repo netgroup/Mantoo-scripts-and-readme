@@ -447,6 +447,19 @@ cd Mantoo-scripts-and-readme
 ./update_all_body.sh clone_repos
 
 
+echo -e "\n\n#####################################"
+echo -e "\n-Setting up Desktop"
+
+ln -s $WORKSPACE_DIR/Mantoo-scripts-and-readme/OSHI-VM-README.txt $HOME_DIR/Desktop/README.txt
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/go.desktop $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/stop.desktop $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/update.desktop $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/check-status.desktop $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/OSHI_VM_8 $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/wireshark.desktop $HOME_DIR/Desktop/
+
+
+
 
 # Change password for root
 #echo 'root:12345' | chpasswd
