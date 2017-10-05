@@ -29,7 +29,7 @@ do
   		# It will enter here if $REPO_dir exists.
 		printandexec cd $REPO_DIR
 
-		if [ "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+		if [ "$(git status | grep 'nothing to commit')" ]; then
 			#echo "nothing to commit, working directory clean"
 			git pull
 		else

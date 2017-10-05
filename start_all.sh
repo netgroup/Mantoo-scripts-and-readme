@@ -6,7 +6,8 @@ stop() {
 	kill -9 $(ps ax | grep -m 1 "python manage.py runserver 0.0.0.0:8000" | awk '{print $1}') &> /dev/null
 	kill $(pidof npm start) &> /dev/null
 	kill $(pidof node app.js) &> /dev/null
-	kill $(ps ax | grep -m 1 'chromium-browser http://localhost:8000' | awk '{print $1}') &> /dev/null
+	#kill $(ps ax | grep -m 1 'chromium-browser http://localhost:8000' | awk '{print $1}') &> /dev/null
+	kill $(ps ax | grep -m 1 'google-chrome http://localhost:8000' | awk '{print $1}') &> /dev/null
 
 	TERM_TO_KILL=$(ps ax | grep -m 2 "xfce4-terminal --disable-server" | awk '{print $1}')
 
@@ -50,7 +51,8 @@ start() {
 
 	sleep 4
 
-	chromium-browser http://localhost:8000
+	#chromium-browser http://localhost:8000
+	google-chrome http://localhost:8000
 
 }
 

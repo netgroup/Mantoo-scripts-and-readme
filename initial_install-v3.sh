@@ -137,6 +137,43 @@ echo -e "\n\n#####################################"
 echo -e "\n-Installing OpenVPN"
 sudo apt-get install -y openvpn &&
 
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing curl"
+sudo apt-get install -y curl &&
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing libappindicator1"
+#needed for chrome
+sudo apt-get install -y libappindicator1 &&
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing chrome"
+
+rm /tmp/google-chrome-stable_current_amd64.deb
+
+echo -e "downloading google chrome latest stable edition"
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome-stable_current_amd64.deb
+sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+
+rm /tmp/google-chrome-stable_current_amd64.deb
+
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing node.js"
+# Adding the NodeSource APT repository for Debian-based distributions repository
+# AND the PGP key for verifying packages
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# Install Node.js from the Debian-based distributions repository
+sudo apt-get install -y nodejs &&
+# get the most up-to-date npm
+sudo npm install npm --global &&
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing shellinabox"
+sudo apt-get install -y shellinabox
+
+
 echo -e "\n\n#####################################"
 echo -e "\n-Installing VLAN packages"
 sudo apt-get install -y vlan &&
@@ -177,6 +214,8 @@ sleep 1
 sudo killall lt-zebra 2> /dev/null
 sudo killall zebra 2> /dev/null
 cd .libs/
+echo -e "\npwd "
+pwd
 sudo cp zebra /usr/lib/quagga/zebra
 cd ../../
 cd ospfd/
@@ -185,7 +224,12 @@ sleep 1
 sudo killall lt-ospfd 2> /dev/null
 sudo killall ospfd 2> /dev/null
 cd .libs/
+echo -e "\npwd "
+pwd
 sudo cp ospfd /usr/lib/quagga/ospfd
+
+echo -e "\nls -la /usr/lib/quagga"
+ls -la /usr/lib/quagga
 
 
 echo -e "\n\n#####################################"

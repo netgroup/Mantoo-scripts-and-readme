@@ -91,7 +91,7 @@ do
   		# It will enter here if $REPO_dir exists.
 		printandexec cd $REPO_DIR
 
-		if [ "$(git status | grep 'nothing to commit, working directory clean')" ]; then
+		if [ "$(git status | grep 'nothing to commit')" ]; then
 			#echo "nothing to commit, working directory clean"
 			git pull
 		else
@@ -162,6 +162,31 @@ do
 	fi
 done
 
+
+UPDATE_AGENTS[0]=rdcl-agent
+#https://github.com/superfluidity/RDCL3D.git
+
+if [[ "$1" = "bitbucket" || "$1" = "bitbucketonly" ]];then
+	UPDATE_AGENTS[1]=test-rdcl
+	#https://ssalsano@bitbucket.org/ssalsano/test-rdcl.git
+fi	
+
+
+for REPO_NAME in ${UPDATE_AGENTS[@]}; 
+do
+	REPO_DIR="$REPO_PATH/$REPO_NAME"
+	if [ -d $REPO_DIR ]; then
+		echo ""
+  		# It will enter here if $MIGRATE_REPO_dir exists.
+		printandexec cd $REPO_DIR
+
+		printandexec npm install 
+
+	else 
+		echo ""
+		echo "Directory $REPO_DIR is not present"
+	fi
+done
 
 #read -r -p "Press enter to exit" response
 
