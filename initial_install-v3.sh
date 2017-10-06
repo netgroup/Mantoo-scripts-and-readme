@@ -250,7 +250,10 @@ echo -e "\n\n#####################################"
 echo -e "\n-Installing sudo"
 sudo apt-get install -y sudo
 
-##########################################
+echo -e "\n\n#####################################"
+echo -e "\n-Installing kdesudo"
+sudo apt-get install -y kdesudo
+
 
 echo -e "\n\n#####################################"
 echo -e "\n-Upgrading iproute2"

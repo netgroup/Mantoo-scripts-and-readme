@@ -70,7 +70,7 @@ Comment[fr]=Analyseur de trafic réseau
 Comment[sv]=Nätverkstrafikanalysator
 Icon=/home/user/workspace/Mantoo-scripts-and-readme/Wireshark_Icon.png
 TryExec=wireshark
-Exec=gksudo wireshark %f
+Exec=kdesudo wireshark %f
 Terminal=false
 MimeType=application/vnd.tcpdump.pcap;
 # Categorie entry according to version 1.0 of
