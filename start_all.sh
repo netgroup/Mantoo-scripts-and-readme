@@ -17,17 +17,42 @@ stop() {
 		kill $TERM	&> /dev/null	
 	done
 
-	TERM_TO_KILL2=$(ps ax | grep "quagga" | awk '{print $1}')
+	TERM_TO_KILL2=$(ps ax | grep "quagga" | grep -v "grep" | awk '{print $1}')
 
 	for TERM in ${TERM_TO_KILL2[@]}; 
 	do
 		echo $TERM
-		kill $TERM	&> /dev/null	
+		sudo kill $TERM	&> /dev/null	
 	done
 
-	if [ "$(ps ax | grep -c 'mininet:')" -gt 1 ]; then
-		sudo mn -c &> /dev/null
-	fi
+	TERM_TO_KILL3=$(ps ax | grep "ovsdb-server" | grep -v "grep" | awk '{print $1}')
+
+	for TERM in ${TERM_TO_KILL3[@]}; 
+	do
+		echo $TERM
+		sudo kill $TERM	&> /dev/null	
+	done
+
+	TERM_TO_KILL4=$(ps ax | grep "ovs-vswitchd" | grep -v "grep" | awk '{print $1}')
+
+	for TERM in ${TERM_TO_KILL4[@]}; 
+	do
+		echo $TERM
+		sudo kill $TERM	&> /dev/null	
+	done
+
+	TERM_TO_KILL5=$(ps ax | grep "/usr/sbin/sshd -o UseDNS=no -u0" | grep -v "grep" | awk '{print $1}')
+
+	for TERM in ${TERM_TO_KILL5[@]}; 
+	do
+		echo $TERM
+		sudo kill $TERM	&> /dev/null	
+	done
+
+
+	#if [ "$(ps ax | grep -c 'mininet:')" -gt 1 ]; then
+	sudo mn -c &> /dev/null
+	#fi
 
 }
 
