@@ -5,6 +5,8 @@ HOME_DIR="/home/$MYUSER"
 WORKSPACE_DIR="$HOME_DIR/workspace"
 MININET_DIR="$HOME_DIR/mininet"
 
+IP_ROUTE2_VERSION="iproute2-4.14.1"
+
 # Debug banner
 echo -e "\n"
 echo "#############################################################"
@@ -243,16 +245,17 @@ sudo apt-get install -y kdesudo
 echo -e "\n\n#####################################"
 echo -e "\n-Upgrading iproute2"
 # Install IPRoute2
-wget https://git.kernel.org/pub/scm/linux/kernel/git/shemminger/iproute2.git/snapshot/iproute2-4.13.0.tar.gz
+wget https://git.kernel.org/pub/scm/linux/kernel/git/shemminger/iproute2.git/snapshot/$IP_ROUTE2_VERSION.tar.gz
 # Extract the content
-tar -xzvf iproute2-4.13.0.tar.gz
+tar -xzvf $IP_ROUTE2_VERSION.tar.gz
 # Enter in the source folder
-cd iproute2-4.13.0
+cd $IP_ROUTE2_VERSION
 # Compile everything
 make
 # Install new iproute2
 sudo make install
-
+echo -e "\nip -V (version):"
+ip -V
 
 echo -e "\n\n#####################################"
 echo -e "\n-Installing mininet"
