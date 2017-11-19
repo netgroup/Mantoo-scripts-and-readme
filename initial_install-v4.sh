@@ -460,7 +460,7 @@ cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/go.desktop $HOME_DIR/Desk
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/stop.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/update.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/check-status.desktop $HOME_DIR/Desktop/
-cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/OSHI_VM_9 $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/OSHI_VM_10 $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/wireshark.desktop $HOME_DIR/Desktop/
 
 
