@@ -6,6 +6,10 @@ WORKSPACE_DIR="$HOME_DIR/workspace"
 MININET_DIR="$HOME_DIR/mininet"
 
 IP_ROUTE2_VERSION="iproute2-4.14.1"
+QUAGGA_VERSION="quagga-1.1.1"
+
+NETWORKX_VERSION="1.11"
+#needed because some changes in version 2.0 are not compatible
 
 # Debug banner
 echo -e "\n"
@@ -191,9 +195,9 @@ sudo apt-get install -y libreadline6-dev
 sudo apt-get install -y libc-ares-dev
 
 cd $HOME_DIR
-wget http://download.savannah.gnu.org/releases/quagga/quagga-1.1.1.tar.gz
-tar xfz quagga-1.1.1.tar.gz
-cd quagga-1.1.1
+wget http://download.savannah.gnu.org/releases/quagga/$QUAGGA_VERSION.tar.gz
+tar xfz $QUAGGA_VERSION.tar.gz
+cd $QUAGGA_VERSION
 
 sudo groupadd quagga
 sudo useradd -g quagga -s /bin/false quagga
@@ -275,7 +279,7 @@ mininet/util/install.sh -a
 # Python dependencies
 pip install ipaddress
 # Networkx
-pip install networkx==1.11
+pip install networkx==$NETWORKX_VERSION
 # netaddr (tool for subnetting)
 pip install netaddr
 
