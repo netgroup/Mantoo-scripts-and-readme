@@ -11,6 +11,8 @@ QUAGGA_VERSION="quagga-1.1.1"
 NETWORKX_VERSION="1.11"
 #needed because some changes in version 2.0 are not compatible
 
+OSHI_VM_DESKTOP_FILE_NAME="OSHI_VM_9"
+
 # Debug banner
 echo -e "\n"
 echo "#############################################################"
@@ -464,7 +466,7 @@ cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/go.desktop $HOME_DIR/Desk
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/stop.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/update.desktop $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/check-status.desktop $HOME_DIR/Desktop/
-cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/OSHI_VM_10 $HOME_DIR/Desktop/
+cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/$OSHI_VM_DESKTOP_FILE_NAME $HOME_DIR/Desktop/
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/wireshark.desktop $HOME_DIR/Desktop/
 
 
