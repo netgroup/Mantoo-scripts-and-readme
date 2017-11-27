@@ -7,8 +7,10 @@ This Virtual Machine provides a ready-to-go environment to run experiments relat
 You may refer to the OSHI Home Page for further information:
 http://netgroup.uniroma2.it/OSHI/ 
 
-OSHI-VM_9 work in progress 2017-10-05
+OSHI-VM_9 released 2017-11-27
 
+- fixes to the RDCL 3D framework
+- desktop image changed to add RDCL 3D
 
 OSHI-VM_8 released 2017-06-07
 - added the RDCL 3D framework, see https://github.com/superfluidity/RDCL3D
