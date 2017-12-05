@@ -447,6 +447,19 @@ cd Mantoo-scripts-and-readme
 ./update_all_body.sh clone_repos
 
 echo -e "\n\n#####################################"
+echo -e "\n-Installing our version of ryu"
+
+cd $WORKSPACE_DIR/dreamer-ryu
+sudo python ./setup.py install
+pip install webob
+pip install routes
+pip install paramiko
+pip install 'oslo.config<2.0.0'
+pip install msgpack-python
+pip install lxml
+pip install 'eventlet==0.20'
+
+echo -e "\n\n#####################################"
 echo -e "\n-Setting up admin password for RDCL 3D"
 
 cd $WORKSPACE_DIR
