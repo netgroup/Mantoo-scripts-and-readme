@@ -250,6 +250,9 @@ sudo apt-get install -y kdesudo
 
 echo -e "\n\n#####################################"
 echo -e "\n-Upgrading iproute2"
+
+cd $HOME_DIR
+
 # Install IPRoute2
 wget https://git.kernel.org/pub/scm/linux/kernel/git/shemminger/iproute2.git/snapshot/$IP_ROUTE2_VERSION.tar.gz
 # Extract the content
