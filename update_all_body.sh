@@ -1,9 +1,12 @@
 #!/bin/bash
 
-REPO_PATH=/home/user/workspace
+#REPO_PATH=/home/user/workspace
+REPO_PATH=$HOME/workspace
+
 
 if [ "$1" = "my_workspace" ];then
-	REPO_PATH=/home/user/my_workspace
+	#REPO_PATH=/home/user/my_workspace
+	REPO_PATH=$HOME/my_workspace
 fi	
 
 #if [ "$1" = "bitbucket" ];then
