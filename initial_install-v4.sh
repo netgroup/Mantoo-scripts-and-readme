@@ -477,9 +477,9 @@ pip install lxml
 pip install 'eventlet==0.20'
 
 #removing files to prevent git detection of changes
-rm -rf .eggs/
-rm AUTHORS
-rm ChangeLog 
+sudo rm -rf .eggs/
+sudo rm -f AUTHORS
+sudo rm -f ChangeLog 
 
 echo -e "\n\n#####################################"
 echo -e "\n-Setting up admin password for RDCL 3D"
