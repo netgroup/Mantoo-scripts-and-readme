@@ -156,6 +156,16 @@ echo -e "\n-Installing libappindicator1"
 sudo apt-get install -y libappindicator1 &&
 
 echo -e "\n\n#####################################"
+echo -e "\n-Installing xdg-utils"
+#needed for chrome
+sudo apt-get install -y xdg-utils &&
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing fonts-liberation"
+#needed for chrome
+sudo apt-get install -y fonts-liberation &&
+
+echo -e "\n\n#####################################"
 echo -e "\n-Installing chrome"
 
 rm /tmp/google-chrome-stable_current_amd64.deb
@@ -166,6 +176,10 @@ sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
 
 rm /tmp/google-chrome-stable_current_amd64.deb
 
+# just in case google installation went wrong
+echo -e "\n\n#####################################"
+echo -e "\n-fix-broken install"
+sudo apt --fix-broken install
 
 echo -e "\n\n#####################################"
 echo -e "\n-Installing node.js"
