@@ -495,7 +495,7 @@ echo -e "\n\n#####################################"
 echo -e "\n-Setting up Desktop"
 
 #sudo cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/xubuntu-quantal-oshi-ok.png /usr/share/xfce4/backdrops
-sudo cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/xubuntu-quantal-oshi-rdcl3d.png /usr/share/xfce4/backdrops
+sudo cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/xubuntu-quantal-oshi-rdcl3d.png /usr/share/xfce4/backdrops
 cp $WORKSPACE_DIR/Mantoo-scripts-and-readme/VM-Desktop/xfce4-desktop.xml $HOME_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 ln -s ../workspace/Mantoo-scripts-and-readme/OSHI-VM-README.txt $HOME_DIR/Desktop/README.txt
