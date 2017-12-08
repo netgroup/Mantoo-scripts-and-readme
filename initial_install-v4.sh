@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MYUSER="user"
-HOME_DIR="/home/$MYUSER"
+#MYUSER="user"
+#HOME_DIR="/home/$MYUSER"
 
 HOME_DIR=$HOME
 
