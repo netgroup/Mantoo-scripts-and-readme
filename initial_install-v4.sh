@@ -2,6 +2,9 @@
 
 MYUSER="user"
 HOME_DIR="/home/$MYUSER"
+
+HOME_DIR=$HOME
+
 WORKSPACE_DIR="$HOME_DIR/workspace"
 MININET_DIR="$HOME_DIR/mininet"
 
@@ -472,6 +475,11 @@ pip install 'oslo.config<2.0.0'
 pip install msgpack-python
 pip install lxml
 pip install 'eventlet==0.20'
+
+#removing files to prevent git detection of changes
+rm -rf .eggs/
+rm AUTHORS
+rm ChangeLog 
 
 echo -e "\n\n#####################################"
 echo -e "\n-Setting up admin password for RDCL 3D"
