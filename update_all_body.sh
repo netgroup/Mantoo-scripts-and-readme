@@ -184,6 +184,7 @@ do
 		printandexec cd $REPO_DIR
 
 		printandexec npm install 
+		printandexec git checkout package-lock.json
 
 	else 
 		echo ""
