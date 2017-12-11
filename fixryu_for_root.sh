@@ -15,3 +15,4 @@ sudo -H pip install ipaddress
 sudo -H pip install networkx==$NETWORKX_VERSION
 # netaddr (tool for subnetting)
 sudo -H pip install netaddr
+sudo -H pip install siphash
