@@ -9,6 +9,9 @@ WORKSPACE_DIR="$HOME_DIR/workspace"
 MININET_DIR="$HOME_DIR/mininet"
 
 IP_ROUTE2_VERSION="iproute2-4.15.1"
+#in this current version iproute is not installed
+#because the one included in the distribution is aligned
+
 QUAGGA_VERSION="quagga-1.1.1"
 
 NETWORKX_VERSION="1.11"
@@ -143,6 +146,11 @@ echo -e "\n\n#####################################"
 echo -e "\n-Installing ipcalc"
 sudo apt-get install -y ipcalc &&
 
+
+echo -e "\n\n#####################################"
+echo -e "\n-Installing libelf-dev"
+sudo apt-get install -y libelf-dev
+
 echo -e "\n\n#####################################"
 echo -e "\n-Installing Linux Headers for Linux kernel `uname -r`"
 sudo apt-get install -y linux-headers-`uname -r` &&
@@ -276,6 +284,7 @@ echo -e "\n-Upgrading iproute2"
 
 cd $HOME_DIR
 
+# in this version IPRoute2 is not reinstalled
 if false; then
 
 # Install IPRoute2
@@ -316,7 +325,8 @@ pip install networkx==$NETWORKX_VERSION
 pip install netaddr
 
 
-exit 0
+#log03
+#exit 0
 
 
 
@@ -339,6 +349,7 @@ sudo mv /lib/modules/`uname -r`/kernel/openvswitch/openvswitch.ko /lib/modules/`
 # Downloading
 cd /opt/ 
 sudo git clone https://github.com/openvswitch/ovs.git
+
 cd  /opt/ovs/ 
 # Boot up and configuring sources
 sudo ./boot.sh &&
@@ -515,6 +526,8 @@ sudo -H pip install networkx==$NETWORKX_VERSION
 sudo -H pip install netaddr
 sudo -H pip install siphash
 
+#log04
+#exit 0
 
 echo -e "\n\n#####################################"
 echo -e "\n-Setting up admin password for RDCL 3D"
