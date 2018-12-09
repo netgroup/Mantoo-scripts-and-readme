@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=stop
+Comment=
+Exec=/home/user/workspace/Mantoo-scripts-and-readme/start_all-v2.sh stop
+Icon=/home/user/workspace/Mantoo-scripts-and-readme/oshi_stopper.png
+Path=
+Terminal=false
+StartupNotify=false
