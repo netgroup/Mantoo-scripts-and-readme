@@ -242,8 +242,11 @@ wget http://download.savannah.gnu.org/releases/quagga/$QUAGGA_VERSION.tar.gz
 tar xfz $QUAGGA_VERSION.tar.gz
 cd $QUAGGA_VERSION
 
-sudo groupadd quagga
-sudo useradd -g quagga -s /bin/false quagga
+# WE STILL NEED TO TEST THAT IT WORKS WITH -r OPTION
+#sudo groupadd quagga
+#sudo useradd -g quagga -s /bin/false quagga
+sudo groupadd -r quagga
+sudo useradd -r -g quagga -s /bin/false quagga
 sudo mkdir /etc/quagga
 sudo mkdir -p /var/run/quagga
 sudo mkdir -p /var/log/quagga
